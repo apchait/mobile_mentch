@@ -7,9 +7,23 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <sqlite3.h>
+#define kSQLFile   @"data.sqlite3"
+@class Trait;
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate>{
+    NSString *databaseName;
+    NSString *databasePath;
+    Trait *currentTrait;
+    NSMutableDictionary *traits;
+}
 
 @property (strong, nonatomic) UIWindow *window;
+@property (nonatomic, copy) NSString *databaseName, *databasePath;
+@property (nonatomic, retain) NSMutableDictionary *traits;
+@property (nonatomic, retain) Trait *currentTrait;
+
+-(void) checkAndCreateDatabase;
+-(void) readTraitsFromDatabase;
 
 @end

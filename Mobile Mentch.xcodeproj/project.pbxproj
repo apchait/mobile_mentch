@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		492C78A3151BE67C00CFC087 /* star-blue256.png in Resources */ = {isa = PBXBuildFile; fileRef = 492C789F151BE67C00CFC087 /* star-blue256.png */; };
+		492C78A4151BE67C00CFC087 /* star-gold256.png in Resources */ = {isa = PBXBuildFile; fileRef = 492C78A0151BE67C00CFC087 /* star-gold256.png */; };
+		492C78A5151BE67C00CFC087 /* star-red256.png in Resources */ = {isa = PBXBuildFile; fileRef = 492C78A1151BE67C00CFC087 /* star-red256.png */; };
+		492C78A6151BE67C00CFC087 /* star-white256.png in Resources */ = {isa = PBXBuildFile; fileRef = 492C78A2151BE67C00CFC087 /* star-white256.png */; };
 		49C28FBC151965B400AD1396 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49C28FBB151965B400AD1396 /* UIKit.framework */; };
 		49C28FBE151965B400AD1396 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49C28FBD151965B400AD1396 /* Foundation.framework */; };
 		49C28FC0151965B400AD1396 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49C28FBF151965B400AD1396 /* CoreGraphics.framework */; };
@@ -17,25 +21,84 @@
 		49C28FD2151965B600AD1396 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49C28FD0151965B600AD1396 /* MainStoryboard_iPad.storyboard */; };
 		49C28FD5151965B600AD1396 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C28FD4151965B600AD1396 /* MainViewController.m */; };
 		49C28FD8151965B600AD1396 /* FlipsideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C28FD7151965B600AD1396 /* FlipsideViewController.m */; };
+		49C28FE0151971DD00AD1396 /* Trait.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C28FDF151971DD00AD1396 /* Trait.m */; };
+		49C28FE4151971F600AD1396 /* Entry.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C28FE3151971F600AD1396 /* Entry.m */; };
+		49C28FEA151A2EBB00AD1396 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 49C28FE9151A2EBB00AD1396 /* libsqlite3.dylib */; };
+		49F024D6151B93220064F243 /* RatingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49F024D4151B93220064F243 /* RatingViewController.m */; };
+		49F024D7151B93220064F243 /* RatingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49F024D5151B93220064F243 /* RatingViewController.xib */; };
+		49F02557151BAE280064F243 /* Approval.png in Resources */ = {isa = PBXBuildFile; fileRef = 49F02543151BAE280064F243 /* Approval.png */; };
+		49F02558151BAE280064F243 /* Attentiveness.png in Resources */ = {isa = PBXBuildFile; fileRef = 49F02544151BAE280064F243 /* Attentiveness.png */; };
+		49F02559151BAE280064F243 /* Communication.png in Resources */ = {isa = PBXBuildFile; fileRef = 49F02545151BAE280064F243 /* Communication.png */; };
+		49F0255A151BAE280064F243 /* Confidence.png in Resources */ = {isa = PBXBuildFile; fileRef = 49F02546151BAE280064F243 /* Confidence.png */; };
+		49F0255B151BAE280064F243 /* Contentment.png in Resources */ = {isa = PBXBuildFile; fileRef = 49F02547151BAE280064F243 /* Contentment.png */; };
+		49F0255C151BAE280064F243 /* Forgiveness.png in Resources */ = {isa = PBXBuildFile; fileRef = 49F02548151BAE280064F243 /* Forgiveness.png */; };
+		49F0255D151BAE280064F243 /* Happiness.png in Resources */ = {isa = PBXBuildFile; fileRef = 49F02549151BAE280064F243 /* Happiness.png */; };
+		49F0255E151BAE280064F243 /* Health:Excercise.png in Resources */ = {isa = PBXBuildFile; fileRef = 49F0254A151BAE280064F243 /* Health:Excercise.png */; };
+		49F0255F151BAE280064F243 /* Healthy Eating.png in Resources */ = {isa = PBXBuildFile; fileRef = 49F0254B151BAE280064F243 /* Healthy Eating.png */; };
+		49F02560151BAE280064F243 /* Honesty.png in Resources */ = {isa = PBXBuildFile; fileRef = 49F0254C151BAE280064F243 /* Honesty.png */; };
+		49F02561151BAE280064F243 /* Kindness.png in Resources */ = {isa = PBXBuildFile; fileRef = 49F0254D151BAE280064F243 /* Kindness.png */; };
+		49F02562151BAE280064F243 /* Laziness.png in Resources */ = {isa = PBXBuildFile; fileRef = 49F0254E151BAE280064F243 /* Laziness.png */; };
+		49F02563151BAE280064F243 /* Open Mindedness.png in Resources */ = {isa = PBXBuildFile; fileRef = 49F0254F151BAE280064F243 /* Open Mindedness.png */; };
+		49F02564151BAE280064F243 /* Patience.png in Resources */ = {isa = PBXBuildFile; fileRef = 49F02550151BAE280064F243 /* Patience.png */; };
+		49F02565151BAE280064F243 /* Positivity:Negativity.png in Resources */ = {isa = PBXBuildFile; fileRef = 49F02551151BAE280064F243 /* Positivity:Negativity.png */; };
+		49F02566151BAE280064F243 /* Self Control.png in Resources */ = {isa = PBXBuildFile; fileRef = 49F02552151BAE280064F243 /* Self Control.png */; };
+		49F02567151BAE280064F243 /* Sensitivity:Compassion.png in Resources */ = {isa = PBXBuildFile; fileRef = 49F02553151BAE280064F243 /* Sensitivity:Compassion.png */; };
+		49F02568151BAE280064F243 /* Stress Management.png in Resources */ = {isa = PBXBuildFile; fileRef = 49F02554151BAE280064F243 /* Stress Management.png */; };
+		49F02569151BAE280064F243 /* Time Management.png in Resources */ = {isa = PBXBuildFile; fileRef = 49F02555151BAE280064F243 /* Time Management.png */; };
+		49F0256A151BAE280064F243 /* Worry.png in Resources */ = {isa = PBXBuildFile; fileRef = 49F02556151BAE280064F243 /* Worry.png */; };
+		49F0256C151BB3CB0064F243 /* traits.plist in Resources */ = {isa = PBXBuildFile; fileRef = 49F0256B151BB3CB0064F243 /* traits.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		492C789F151BE67C00CFC087 /* star-blue256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star-blue256.png"; sourceTree = "<group>"; };
+		492C78A0151BE67C00CFC087 /* star-gold256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star-gold256.png"; sourceTree = "<group>"; };
+		492C78A1151BE67C00CFC087 /* star-red256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star-red256.png"; sourceTree = "<group>"; };
+		492C78A2151BE67C00CFC087 /* star-white256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star-white256.png"; sourceTree = "<group>"; };
 		49C28FB7151965B400AD1396 /* Mobile Mentch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mobile Mentch.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		49C28FBB151965B400AD1396 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		49C28FBD151965B400AD1396 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		49C28FBF151965B400AD1396 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		49C28FC3151965B400AD1396 /* Mobile Mentch-Info.plist */ = {isa = PBXFileReference; path = "Mobile Mentch-Info.plist"; sourceTree = "<group>"; };
+		49C28FC3151965B400AD1396 /* Mobile Mentch-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Mobile Mentch-Info.plist"; sourceTree = "<group>"; };
 		49C28FC5151965B500AD1396 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		49C28FC7151965B500AD1396 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		49C28FC9151965B500AD1396 /* Mobile Mentch-Prefix.pch */ = {isa = PBXFileReference; path = "Mobile Mentch-Prefix.pch"; sourceTree = "<group>"; };
-		49C28FCA151965B500AD1396 /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
+		49C28FC9151965B500AD1396 /* Mobile Mentch-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Mobile Mentch-Prefix.pch"; sourceTree = "<group>"; };
+		49C28FCA151965B500AD1396 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		49C28FCB151965B500AD1396 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		49C28FCE151965B600AD1396 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		49C28FD1151965B600AD1396 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
-		49C28FD3151965B600AD1396 /* MainViewController.h */ = {isa = PBXFileReference; path = MainViewController.h; sourceTree = "<group>"; };
+		49C28FD3151965B600AD1396 /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		49C28FD4151965B600AD1396 /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
-		49C28FD6151965B600AD1396 /* FlipsideViewController.h */ = {isa = PBXFileReference; path = FlipsideViewController.h; sourceTree = "<group>"; };
+		49C28FD6151965B600AD1396 /* FlipsideViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlipsideViewController.h; sourceTree = "<group>"; };
 		49C28FD7151965B600AD1396 /* FlipsideViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlipsideViewController.m; sourceTree = "<group>"; };
+		49C28FDE151971DD00AD1396 /* Trait.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Trait.h; sourceTree = "<group>"; };
+		49C28FDF151971DD00AD1396 /* Trait.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Trait.m; sourceTree = "<group>"; };
+		49C28FE2151971F600AD1396 /* Entry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Entry.h; sourceTree = "<group>"; };
+		49C28FE3151971F600AD1396 /* Entry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Entry.m; sourceTree = "<group>"; };
+		49C28FE9151A2EBB00AD1396 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		49F024D3151B93220064F243 /* RatingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RatingViewController.h; sourceTree = "<group>"; };
+		49F024D4151B93220064F243 /* RatingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RatingViewController.m; sourceTree = "<group>"; };
+		49F024D5151B93220064F243 /* RatingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RatingViewController.xib; sourceTree = "<group>"; };
+		49F02543151BAE280064F243 /* Approval.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Approval.png; sourceTree = "<group>"; };
+		49F02544151BAE280064F243 /* Attentiveness.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Attentiveness.png; sourceTree = "<group>"; };
+		49F02545151BAE280064F243 /* Communication.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Communication.png; sourceTree = "<group>"; };
+		49F02546151BAE280064F243 /* Confidence.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Confidence.png; sourceTree = "<group>"; };
+		49F02547151BAE280064F243 /* Contentment.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Contentment.png; sourceTree = "<group>"; };
+		49F02548151BAE280064F243 /* Forgiveness.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Forgiveness.png; sourceTree = "<group>"; };
+		49F02549151BAE280064F243 /* Happiness.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Happiness.png; sourceTree = "<group>"; };
+		49F0254A151BAE280064F243 /* Health:Excercise.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Health:Excercise.png"; sourceTree = "<group>"; };
+		49F0254B151BAE280064F243 /* Healthy Eating.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Healthy Eating.png"; sourceTree = "<group>"; };
+		49F0254C151BAE280064F243 /* Honesty.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Honesty.png; sourceTree = "<group>"; };
+		49F0254D151BAE280064F243 /* Kindness.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Kindness.png; sourceTree = "<group>"; };
+		49F0254E151BAE280064F243 /* Laziness.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Laziness.png; sourceTree = "<group>"; };
+		49F0254F151BAE280064F243 /* Open Mindedness.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Open Mindedness.png"; sourceTree = "<group>"; };
+		49F02550151BAE280064F243 /* Patience.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Patience.png; sourceTree = "<group>"; };
+		49F02551151BAE280064F243 /* Positivity:Negativity.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Positivity:Negativity.png"; sourceTree = "<group>"; };
+		49F02552151BAE280064F243 /* Self Control.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Self Control.png"; sourceTree = "<group>"; };
+		49F02553151BAE280064F243 /* Sensitivity:Compassion.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Sensitivity:Compassion.png"; sourceTree = "<group>"; };
+		49F02554151BAE280064F243 /* Stress Management.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Stress Management.png"; sourceTree = "<group>"; };
+		49F02555151BAE280064F243 /* Time Management.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Time Management.png"; sourceTree = "<group>"; };
+		49F02556151BAE280064F243 /* Worry.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Worry.png; sourceTree = "<group>"; };
+		49F0256B151BB3CB0064F243 /* traits.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = traits.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +106,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49C28FEA151A2EBB00AD1396 /* libsqlite3.dylib in Frameworks */,
 				49C28FBC151965B400AD1396 /* UIKit.framework in Frameworks */,
 				49C28FBE151965B400AD1396 /* Foundation.framework in Frameworks */,
 				49C28FC0151965B400AD1396 /* CoreGraphics.framework in Frameworks */,
@@ -52,9 +116,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		492C789E151BE67C00CFC087 /* stars */ = {
+			isa = PBXGroup;
+			children = (
+				492C789F151BE67C00CFC087 /* star-blue256.png */,
+				492C78A0151BE67C00CFC087 /* star-gold256.png */,
+				492C78A1151BE67C00CFC087 /* star-red256.png */,
+				492C78A2151BE67C00CFC087 /* star-white256.png */,
+			);
+			path = stars;
+			sourceTree = "<group>";
+		};
 		49C28FAC151965AB00AD1396 = {
 			isa = PBXGroup;
 			children = (
+				49C28FE9151A2EBB00AD1396 /* libsqlite3.dylib */,
 				49C28FC1151965B400AD1396 /* Mobile Mentch */,
 				49C28FBA151965B400AD1396 /* Frameworks */,
 				49C28FB8151965B400AD1396 /* Products */,
@@ -82,14 +158,19 @@
 		49C28FC1151965B400AD1396 /* Mobile Mentch */ = {
 			isa = PBXGroup;
 			children = (
+				49F02542151BAE280064F243 /* images */,
 				49C28FCA151965B500AD1396 /* AppDelegate.h */,
 				49C28FCB151965B500AD1396 /* AppDelegate.m */,
 				49C28FCD151965B600AD1396 /* MainStoryboard_iPhone.storyboard */,
 				49C28FD0151965B600AD1396 /* MainStoryboard_iPad.storyboard */,
 				49C28FD3151965B600AD1396 /* MainViewController.h */,
 				49C28FD4151965B600AD1396 /* MainViewController.m */,
+				49F024D3151B93220064F243 /* RatingViewController.h */,
+				49F024D4151B93220064F243 /* RatingViewController.m */,
+				49F024D5151B93220064F243 /* RatingViewController.xib */,
 				49C28FD6151965B600AD1396 /* FlipsideViewController.h */,
 				49C28FD7151965B600AD1396 /* FlipsideViewController.m */,
+				49C28FE1151971E300AD1396 /* Classes */,
 				49C28FC2151965B400AD1396 /* Supporting Files */,
 			);
 			path = "Mobile Mentch";
@@ -98,12 +179,52 @@
 		49C28FC2151965B400AD1396 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				49F0256B151BB3CB0064F243 /* traits.plist */,
 				49C28FC3151965B400AD1396 /* Mobile Mentch-Info.plist */,
 				49C28FC4151965B500AD1396 /* InfoPlist.strings */,
 				49C28FC7151965B500AD1396 /* main.m */,
 				49C28FC9151965B500AD1396 /* Mobile Mentch-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		49C28FE1151971E300AD1396 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				49C28FDE151971DD00AD1396 /* Trait.h */,
+				49C28FDF151971DD00AD1396 /* Trait.m */,
+				49C28FE2151971F600AD1396 /* Entry.h */,
+				49C28FE3151971F600AD1396 /* Entry.m */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		49F02542151BAE280064F243 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				492C789E151BE67C00CFC087 /* stars */,
+				49F02543151BAE280064F243 /* Approval.png */,
+				49F02544151BAE280064F243 /* Attentiveness.png */,
+				49F02545151BAE280064F243 /* Communication.png */,
+				49F02546151BAE280064F243 /* Confidence.png */,
+				49F02547151BAE280064F243 /* Contentment.png */,
+				49F02548151BAE280064F243 /* Forgiveness.png */,
+				49F02549151BAE280064F243 /* Happiness.png */,
+				49F0254A151BAE280064F243 /* Health:Excercise.png */,
+				49F0254B151BAE280064F243 /* Healthy Eating.png */,
+				49F0254C151BAE280064F243 /* Honesty.png */,
+				49F0254D151BAE280064F243 /* Kindness.png */,
+				49F0254E151BAE280064F243 /* Laziness.png */,
+				49F0254F151BAE280064F243 /* Open Mindedness.png */,
+				49F02550151BAE280064F243 /* Patience.png */,
+				49F02551151BAE280064F243 /* Positivity:Negativity.png */,
+				49F02552151BAE280064F243 /* Self Control.png */,
+				49F02553151BAE280064F243 /* Sensitivity:Compassion.png */,
+				49F02554151BAE280064F243 /* Stress Management.png */,
+				49F02555151BAE280064F243 /* Time Management.png */,
+				49F02556151BAE280064F243 /* Worry.png */,
+			);
+			path = images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -159,6 +280,32 @@
 				49C28FC6151965B500AD1396 /* InfoPlist.strings in Resources */,
 				49C28FCF151965B600AD1396 /* MainStoryboard_iPhone.storyboard in Resources */,
 				49C28FD2151965B600AD1396 /* MainStoryboard_iPad.storyboard in Resources */,
+				49F024D7151B93220064F243 /* RatingViewController.xib in Resources */,
+				49F02557151BAE280064F243 /* Approval.png in Resources */,
+				49F02558151BAE280064F243 /* Attentiveness.png in Resources */,
+				49F02559151BAE280064F243 /* Communication.png in Resources */,
+				49F0255A151BAE280064F243 /* Confidence.png in Resources */,
+				49F0255B151BAE280064F243 /* Contentment.png in Resources */,
+				49F0255C151BAE280064F243 /* Forgiveness.png in Resources */,
+				49F0255D151BAE280064F243 /* Happiness.png in Resources */,
+				49F0255E151BAE280064F243 /* Health:Excercise.png in Resources */,
+				49F0255F151BAE280064F243 /* Healthy Eating.png in Resources */,
+				49F02560151BAE280064F243 /* Honesty.png in Resources */,
+				49F02561151BAE280064F243 /* Kindness.png in Resources */,
+				49F02562151BAE280064F243 /* Laziness.png in Resources */,
+				49F02563151BAE280064F243 /* Open Mindedness.png in Resources */,
+				49F02564151BAE280064F243 /* Patience.png in Resources */,
+				49F02565151BAE280064F243 /* Positivity:Negativity.png in Resources */,
+				49F02566151BAE280064F243 /* Self Control.png in Resources */,
+				49F02567151BAE280064F243 /* Sensitivity:Compassion.png in Resources */,
+				49F02568151BAE280064F243 /* Stress Management.png in Resources */,
+				49F02569151BAE280064F243 /* Time Management.png in Resources */,
+				49F0256A151BAE280064F243 /* Worry.png in Resources */,
+				49F0256C151BB3CB0064F243 /* traits.plist in Resources */,
+				492C78A3151BE67C00CFC087 /* star-blue256.png in Resources */,
+				492C78A4151BE67C00CFC087 /* star-gold256.png in Resources */,
+				492C78A5151BE67C00CFC087 /* star-red256.png in Resources */,
+				492C78A6151BE67C00CFC087 /* star-white256.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -173,6 +320,9 @@
 				49C28FCC151965B500AD1396 /* AppDelegate.m in Sources */,
 				49C28FD5151965B600AD1396 /* MainViewController.m in Sources */,
 				49C28FD8151965B600AD1396 /* FlipsideViewController.m in Sources */,
+				49C28FE0151971DD00AD1396 /* Trait.m in Sources */,
+				49C28FE4151971F600AD1396 /* Entry.m in Sources */,
+				49F024D6151B93220064F243 /* RatingViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,6 +444,7 @@
 				49C28FDD151965B600AD1396 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

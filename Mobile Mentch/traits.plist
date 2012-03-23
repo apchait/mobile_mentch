@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>traits</key>
+	<dict>
+		<key>Stress Management</key>
+		<dict>
+			<key>icon</key>
+			<string></string>
+			<key>customDescription</key>
+			<string></string>
+			<key>description</key>
+			<string>&quot;Stress is the trash of modern life - we all generate it but if you don&apos;t dispose of it properly, it will pile up and overtake your life&quot; - Danzae Pace</string>
+			<key>name</key>
+			<string>Stress Management</string>
+		</dict>
+		<key>Worry</key>
+		<dict>
+			<key>icon</key>
+			<string></string>
+			<key>customDescription</key>
+			<string></string>
+			<key>description</key>
+			<string>&quot;For peace of mind, resign as general manager of the universe.&quot; - Author Unknown. Am i spending  time worrying needlessly?</string>
+			<key>name</key>
+			<string>Worry</string>
+		</dict>
+		<key>Approval</key>
+		<dict>
+			<key>icon</key>
+			<string></string>
+			<key>customDescription</key>
+			<string></string>
+			<key>description</key>
+			<string></string>
+			<key>name</key>
+			<string>Approval</string>
+		</dict>
+		<key>Attentiveness</key>
+		<dict>
+			<key>icon</key>
+			<string></string>
+			<key>customDescription</key>
+			<string></string>
+			<key>description</key>
+			<string>Am I paying attention to what is going on? Do I text people mid conversation?</string>
+			<key>name</key>
+			<string>Attentiveness</string>
+		</dict>
+		<key>Communication</key>
+		<dict>
+			<key>icon</key>
+			<string></string>
+			<key>customDescription</key>
+			<string></string>
+			<key>description</key>
+			<string>How are lines of communication? Are they open? or is there a lot of static, or no signal at all?</string>
+			<key>name</key>
+			<string>Communication</string>
+		</dict>
+		<key>Confidence</key>
+		<dict>
+			<key>icon</key>
+			<string></string>
+			<key>customDescription</key>
+			<string></string>
+			<key>description</key>
+			<string>“Your chances of success in any undertaking can always be measured by your belief in yourself.” - Robet Collier</string>
+			<key>name</key>
+			<string>Confidence</string>
+		</dict>
+		<key>Contentment</key>
+		<dict>
+			<key>icon</key>
+			<string></string>
+			<key>customDescription</key>
+			<string></string>
+			<key>description</key>
+			<string>&quot;Who is rich? The one who is appreciates what he has&quot; - Ethics of the Fathers 4:1 Does my happiness depend on material possessions?</string>
+			<key>name</key>
+			<string>Contentment</string>
+		</dict>
+		<key>Forgiveness</key>
+		<dict>
+			<key>icon</key>
+			<string></string>
+			<key>customDescription</key>
+			<string></string>
+			<key>description</key>
+			<string>&quot;It is easier to forgive an enemy than to forgive a friend.&quot; - William Blake. Do I let go and forgive?</string>
+			<key>name</key>
+			<string>Forgiveness</string>
+		</dict>
+		<key>Happiness</key>
+		<dict>
+			<key>icon</key>
+			<string></string>
+			<key>customDescription</key>
+			<string></string>
+			<key>description</key>
+			<string>“I&apos;ve learned from experience that the greater part of our happiness or misery depends on our dispositions and not on our circumstances.” - Martha Washington</string>
+			<key>name</key>
+			<string>Happiness</string>
+		</dict>
+		<key>Health/Excercise</key>
+		<dict>
+			<key>icon</key>
+			<string>Health:Excercise</string>
+			<key>customDescription</key>
+			<string></string>
+			<key>description</key>
+			<string>Is my body getting the workout it needs to stay in shape? How do I feel after I exercise?</string>
+			<key>name</key>
+			<string>Health/Exercise</string>
+		</dict>
+		<key>Healthy Eating</key>
+		<dict>
+			<key>icon</key>
+			<string></string>
+			<key>customDescription</key>
+			<string></string>
+			<key>description</key>
+			<string>Is eating a way to feel good or fuel for my body? </string>
+			<key>name</key>
+			<string>Healthy Eating</string>
+		</dict>
+		<key>Honesty</key>
+		<dict>
+			<key>icon</key>
+			<string></string>
+			<key>customDescription</key>
+			<string></string>
+			<key>description</key>
+			<string>&quot;Oh what a tangled web we weave, When first we practice to deceive!&quot; - Sir Walter Scott</string>
+			<key>name</key>
+			<string>Honesty</string>
+		</dict>
+		<key>Kindness</key>
+		<dict>
+			<key>icon</key>
+			<string></string>
+			<key>customDescription</key>
+			<string></string>
+			<key>description</key>
+			<string>“Kindness is a language which the deaf can hear, and the blind can read” Am I being kind to others?</string>
+			<key>name</key>
+			<string>Kindness</string>
+		</dict>
+		<key>Laziness</key>
+		<dict>
+			<key>icon</key>
+			<string></string>
+			<key>customDescription</key>
+			<string></string>
+			<key>description</key>
+			<string>“The hardest work of all is to do nothing.”</string>
+			<key>name</key>
+			<string>Laziness</string>
+		</dict>
+		<key>Open Mindedness</key>
+		<dict>
+			<key>icon</key>
+			<string></string>
+			<key>customDescription</key>
+			<string></string>
+			<key>description</key>
+			<string>Am I opened to hearing another way? Is my idea the only right one?</string>
+			<key>name</key>
+			<string>Open Mindedness</string>
+		</dict>
+		<key>Patience</key>
+		<dict>
+			<key>icon</key>
+			<string></string>
+			<key>customDescription</key>
+			<string></string>
+			<key>description</key>
+			<string>“Patience is something you admire in the driver behind you, but not in one ahead.” - Bill McGlashen </string>
+			<key>name</key>
+			<string>Patience</string>
+		</dict>
+		<key>Positivity/Negativity</key>
+		<dict>
+			<key>icon</key>
+			<string>Positivity:Negativity</string>
+			<key>customDescription</key>
+			<string></string>
+			<key>description</key>
+			<string>“There is little difference in people, but that little difference makes a big difference. The little difference is attitude. The big difference is whether it is positive or negative.” W. Clement Stone</string>
+			<key>name</key>
+			<string>Positivity/Negativity</string>
+		</dict>
+		<key>Self Control</key>
+		<dict>
+			<key>icon</key>
+			<string></string>
+			<key>customDescription</key>
+			<string></string>
+			<key>description</key>
+			<string>“Who is mighty? The one who subdues the evil inclinati&quot; - Ethics of the Fathers 4:1</string>
+			<key>name</key>
+			<string>Self Control</string>
+		</dict>
+		<key>Sensitivity/Compassion</key>
+		<dict>
+			<key>icon</key>
+			<string>Sensitivity:Compassion</string>
+			<key>customDescription</key>
+			<string></string>
+			<key>description</key>
+			<string>“Compassion is not weakness, and concern for the unfortunate is not socialism.” - Hubert Humphry. Am i sensitive in my interactions or am I callous?</string>
+			<key>name</key>
+			<string>Sensitivity/Compassion</string>
+		</dict>
+		<key>Time Management</key>
+		<dict>
+			<key>icon</key>
+			<string></string>
+			<key>customDescription</key>
+			<string></string>
+			<key>description</key>
+			<string>Time is my most valuable asset. Am I using it efficiently?</string>
+			<key>name</key>
+			<string>Time Management</string>
+		</dict>
+	</dict>
+</dict>
+</plist>

@@ -7,9 +7,11 @@
 //
 
 #import "FlipsideViewController.h"
+@class AppDelegate;
 
-@interface MainViewController : UIViewController <FlipsideViewControllerDelegate, UIPopoverControllerDelegate>
+@interface MainViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate, FlipsideViewControllerDelegate, UIPopoverControllerDelegate>
 
 @property (strong, nonatomic) UIPopoverController *flipsidePopoverController;
+@property (nonatomic, retain) AppDelegate *myApp;
 
 @end
