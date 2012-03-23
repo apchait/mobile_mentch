@@ -27,7 +27,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	static NSString *kCustomCellID = @"CustomCellID";
-	
+    
 	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kCustomCellID];
 	if (cell == nil)
 	{

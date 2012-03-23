@@ -9,11 +9,11 @@
 #import <UIKit/UIKit.h>
 @class AppDelegate;
 
-@interface RatingViewController : UIViewController <UINavigationBarDelegate>
+@interface RatingViewController : UITableViewController <UINavigationBarDelegate, UITableViewDelegate, UITableViewDataSource, UITextViewDelegate>
 
 @property (nonatomic, retain) AppDelegate *myApp;
 @property (nonatomic, retain) IBOutlet UILabel *traitTitle;
-@property (nonatomic, retain) IBOutlet UITextView *traitDescription;
+@property (nonatomic, retain) IBOutlet UITextView *traitDescription, *notes;
 @property (nonatomic, retain) IBOutlet UINavigationItem *navBarTitle;
 @property (nonatomic, retain) IBOutlet UIImageView *traitImage;
 @property (nonatomic, retain) IBOutlet UIButton *star1, *star2, *star3, *star4, *star5;

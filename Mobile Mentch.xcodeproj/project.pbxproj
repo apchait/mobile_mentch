@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		491D1DEF151D3697001F11AC /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 491D1DEE151D3697001F11AC /* LoginViewController.m */; };
 		492C78A3151BE67C00CFC087 /* star-blue256.png in Resources */ = {isa = PBXBuildFile; fileRef = 492C789F151BE67C00CFC087 /* star-blue256.png */; };
 		492C78A4151BE67C00CFC087 /* star-gold256.png in Resources */ = {isa = PBXBuildFile; fileRef = 492C78A0151BE67C00CFC087 /* star-gold256.png */; };
 		492C78A5151BE67C00CFC087 /* star-red256.png in Resources */ = {isa = PBXBuildFile; fileRef = 492C78A1151BE67C00CFC087 /* star-red256.png */; };
@@ -50,6 +51,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		491D1DED151D3697001F11AC /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		491D1DEE151D3697001F11AC /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		492C789F151BE67C00CFC087 /* star-blue256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star-blue256.png"; sourceTree = "<group>"; };
 		492C78A0151BE67C00CFC087 /* star-gold256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star-gold256.png"; sourceTree = "<group>"; };
 		492C78A1151BE67C00CFC087 /* star-red256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star-red256.png"; sourceTree = "<group>"; };
@@ -170,6 +173,8 @@
 				49F024D5151B93220064F243 /* RatingViewController.xib */,
 				49C28FD6151965B600AD1396 /* FlipsideViewController.h */,
 				49C28FD7151965B600AD1396 /* FlipsideViewController.m */,
+				491D1DED151D3697001F11AC /* LoginViewController.h */,
+				491D1DEE151D3697001F11AC /* LoginViewController.m */,
 				49C28FE1151971E300AD1396 /* Classes */,
 				49C28FC2151965B400AD1396 /* Supporting Files */,
 			);
@@ -323,6 +328,7 @@
 				49C28FE0151971DD00AD1396 /* Trait.m in Sources */,
 				49C28FE4151971F600AD1396 /* Entry.m in Sources */,
 				49F024D6151B93220064F243 /* RatingViewController.m in Sources */,
+				491D1DEF151D3697001F11AC /* LoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

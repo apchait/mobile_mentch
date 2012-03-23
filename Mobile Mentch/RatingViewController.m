@@ -14,13 +14,12 @@
 @end
 
 @implementation RatingViewController
-@synthesize myApp, traitTitle, traitDescription, traitImage, navBarTitle, star1, star2, star3, star4, star5;
+@synthesize myApp, traitTitle, traitDescription, traitImage, notes, navBarTitle, star1, star2, star3, star4, star5;
 
 -(IBAction)starPressed:(id)sender{
     NSArray *stars = [[NSArray alloc] initWithObjects:star1, star2, star3, star4, star5, nil];
-    
     BOOL foundSender = NO;
-    
+    NSLog(@"Pressed");
     for (NSUInteger i = 0; i<[stars count]; i++) {
         UIButton *button = [stars objectAtIndex:i];
         if (button == sender) {
@@ -29,6 +28,9 @@
                 // if sender to the right is selected, leave selected
                 if (![[stars objectAtIndex:i + 1] isSelected]) {
                     [sender setSelected:NO];
+                }
+                else {
+                    [sender setSelected:YES];
                 }
             }
             else {
@@ -88,7 +90,26 @@
     CGRect rect = [button frame];
     NSLog(@"Swiped");
 }
+#pragma mark TextViewDelegate Methods
+- (void)textViewDidBeginEditing:(UITextView *)textView{
+    if([[textView text] isEqualToString:@"Add Notes Here..."]){
+        [textView setText:@""];
+    }
+}
 
+- (void)textViewDidEndEditing:(UITextView *)textView{
+    if([[textView text] isEqualToString:@""]){
+        [textView setText:@"Add Notes Here..."];
+    }
+}
+
+- (BOOL)textViewShouldReturn:(UITextView *)textView {
+    // Close the keyboard when return is touched
+    [textView resignFirstResponder];
+    return NO;
+}
+
+#pragma mark Loadup Methods
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
