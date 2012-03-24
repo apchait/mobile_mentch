@@ -16,6 +16,26 @@
 @implementation RatingViewController
 @synthesize myApp, traitTitle, traitDescription, traitImage, notes, navBarTitle, star1, star2, star3, star4, star5;
 
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    NSLog(@"%@", [segue identifier]);
+    // if sending to rating view, make my notes myApp's notes
+    if ([segue identifier] == @"toNoteView") {
+        if (notes.text != @"Add Notes Here...") {
+            myApp.notes = [notes text];
+        }
+        else {
+            myApp.notes = @"";
+        }
+    }
+    // if finishing up, delete myApp's notes
+    else if ([[segue identifier] isEqualToString:[NSString stringWithFormat:@"toMainView"]]){
+        myApp.notes = @"Add Notes Here...";
+        // save here
+    }
+}
+
+
+
 -(IBAction)starPressed:(id)sender{
     NSArray *stars = [[NSArray alloc] initWithObjects:star1, star2, star3, star4, star5, nil];
     BOOL foundSender = NO;
@@ -141,7 +161,10 @@
         [traitDescription setText:[currentTrait valueForKey:@"customDescription"]];
     }
     
-    // Set up the stars
+    // Set up the notes
+    if(myApp.notes != Nil){
+        [[self notes] setText:myApp.notes];
+    }
 
 }
 

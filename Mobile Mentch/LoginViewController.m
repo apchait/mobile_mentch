@@ -36,6 +36,9 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    UIImageView *tempImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"SplashFinal.jpg"]];
+    [tempImageView setFrame:self.tableView.frame]; 
 }
 
 - (void)viewDidUnload

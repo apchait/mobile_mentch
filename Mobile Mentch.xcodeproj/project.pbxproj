@@ -8,10 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		491D1DEF151D3697001F11AC /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 491D1DEE151D3697001F11AC /* LoginViewController.m */; };
+		491D1DF5151D3FB9001F11AC /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 491D1DF3151D3FB9001F11AC /* logo.png */; };
+		491D1DF6151D3FB9001F11AC /* SplashFinal.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 491D1DF4151D3FB9001F11AC /* SplashFinal.jpg */; };
 		492C78A3151BE67C00CFC087 /* star-blue256.png in Resources */ = {isa = PBXBuildFile; fileRef = 492C789F151BE67C00CFC087 /* star-blue256.png */; };
 		492C78A4151BE67C00CFC087 /* star-gold256.png in Resources */ = {isa = PBXBuildFile; fileRef = 492C78A0151BE67C00CFC087 /* star-gold256.png */; };
 		492C78A5151BE67C00CFC087 /* star-red256.png in Resources */ = {isa = PBXBuildFile; fileRef = 492C78A1151BE67C00CFC087 /* star-red256.png */; };
 		492C78A6151BE67C00CFC087 /* star-white256.png in Resources */ = {isa = PBXBuildFile; fileRef = 492C78A2151BE67C00CFC087 /* star-white256.png */; };
+		496E5E40151D93F60041123E /* NoteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 496E5E3F151D93F60041123E /* NoteViewController.m */; };
 		49C28FBC151965B400AD1396 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49C28FBB151965B400AD1396 /* UIKit.framework */; };
 		49C28FBE151965B400AD1396 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49C28FBD151965B400AD1396 /* Foundation.framework */; };
 		49C28FC0151965B400AD1396 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49C28FBF151965B400AD1396 /* CoreGraphics.framework */; };
@@ -26,7 +29,6 @@
 		49C28FE4151971F600AD1396 /* Entry.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C28FE3151971F600AD1396 /* Entry.m */; };
 		49C28FEA151A2EBB00AD1396 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 49C28FE9151A2EBB00AD1396 /* libsqlite3.dylib */; };
 		49F024D6151B93220064F243 /* RatingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49F024D4151B93220064F243 /* RatingViewController.m */; };
-		49F024D7151B93220064F243 /* RatingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49F024D5151B93220064F243 /* RatingViewController.xib */; };
 		49F02557151BAE280064F243 /* Approval.png in Resources */ = {isa = PBXBuildFile; fileRef = 49F02543151BAE280064F243 /* Approval.png */; };
 		49F02558151BAE280064F243 /* Attentiveness.png in Resources */ = {isa = PBXBuildFile; fileRef = 49F02544151BAE280064F243 /* Attentiveness.png */; };
 		49F02559151BAE280064F243 /* Communication.png in Resources */ = {isa = PBXBuildFile; fileRef = 49F02545151BAE280064F243 /* Communication.png */; };
@@ -53,10 +55,14 @@
 /* Begin PBXFileReference section */
 		491D1DED151D3697001F11AC /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		491D1DEE151D3697001F11AC /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		491D1DF3151D3FB9001F11AC /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		491D1DF4151D3FB9001F11AC /* SplashFinal.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = SplashFinal.jpg; sourceTree = "<group>"; };
 		492C789F151BE67C00CFC087 /* star-blue256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star-blue256.png"; sourceTree = "<group>"; };
 		492C78A0151BE67C00CFC087 /* star-gold256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star-gold256.png"; sourceTree = "<group>"; };
 		492C78A1151BE67C00CFC087 /* star-red256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star-red256.png"; sourceTree = "<group>"; };
 		492C78A2151BE67C00CFC087 /* star-white256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star-white256.png"; sourceTree = "<group>"; };
+		496E5E3E151D93F60041123E /* NoteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteViewController.h; sourceTree = "<group>"; };
+		496E5E3F151D93F60041123E /* NoteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteViewController.m; sourceTree = "<group>"; };
 		49C28FB7151965B400AD1396 /* Mobile Mentch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mobile Mentch.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		49C28FBB151965B400AD1396 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		49C28FBD151965B400AD1396 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -80,7 +86,6 @@
 		49C28FE9151A2EBB00AD1396 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		49F024D3151B93220064F243 /* RatingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RatingViewController.h; sourceTree = "<group>"; };
 		49F024D4151B93220064F243 /* RatingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RatingViewController.m; sourceTree = "<group>"; };
-		49F024D5151B93220064F243 /* RatingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RatingViewController.xib; sourceTree = "<group>"; };
 		49F02543151BAE280064F243 /* Approval.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Approval.png; sourceTree = "<group>"; };
 		49F02544151BAE280064F243 /* Attentiveness.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Attentiveness.png; sourceTree = "<group>"; };
 		49F02545151BAE280064F243 /* Communication.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Communication.png; sourceTree = "<group>"; };
@@ -119,6 +124,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		491D1DF1151D3F9E001F11AC /* traits */ = {
+			isa = PBXGroup;
+			children = (
+				49F02543151BAE280064F243 /* Approval.png */,
+				49F02544151BAE280064F243 /* Attentiveness.png */,
+				49F02545151BAE280064F243 /* Communication.png */,
+				49F02546151BAE280064F243 /* Confidence.png */,
+				49F02547151BAE280064F243 /* Contentment.png */,
+				49F02548151BAE280064F243 /* Forgiveness.png */,
+				49F02549151BAE280064F243 /* Happiness.png */,
+				49F0254A151BAE280064F243 /* Health:Excercise.png */,
+				49F0254B151BAE280064F243 /* Healthy Eating.png */,
+				49F0254C151BAE280064F243 /* Honesty.png */,
+				49F0254D151BAE280064F243 /* Kindness.png */,
+				49F0254E151BAE280064F243 /* Laziness.png */,
+				49F0254F151BAE280064F243 /* Open Mindedness.png */,
+				49F02550151BAE280064F243 /* Patience.png */,
+				49F02551151BAE280064F243 /* Positivity:Negativity.png */,
+				49F02552151BAE280064F243 /* Self Control.png */,
+				49F02553151BAE280064F243 /* Sensitivity:Compassion.png */,
+				49F02554151BAE280064F243 /* Stress Management.png */,
+				49F02555151BAE280064F243 /* Time Management.png */,
+				49F02556151BAE280064F243 /* Worry.png */,
+			);
+			name = traits;
+			sourceTree = "<group>";
+		};
+		491D1DF2151D3FAB001F11AC /* logos */ = {
+			isa = PBXGroup;
+			children = (
+				491D1DF3151D3FB9001F11AC /* logo.png */,
+				491D1DF4151D3FB9001F11AC /* SplashFinal.jpg */,
+			);
+			name = logos;
+			sourceTree = "<group>";
+		};
 		492C789E151BE67C00CFC087 /* stars */ = {
 			isa = PBXGroup;
 			children = (
@@ -168,15 +209,16 @@
 				49C28FD0151965B600AD1396 /* MainStoryboard_iPad.storyboard */,
 				49C28FD3151965B600AD1396 /* MainViewController.h */,
 				49C28FD4151965B600AD1396 /* MainViewController.m */,
-				49F024D3151B93220064F243 /* RatingViewController.h */,
-				49F024D4151B93220064F243 /* RatingViewController.m */,
-				49F024D5151B93220064F243 /* RatingViewController.xib */,
 				49C28FD6151965B600AD1396 /* FlipsideViewController.h */,
 				49C28FD7151965B600AD1396 /* FlipsideViewController.m */,
 				491D1DED151D3697001F11AC /* LoginViewController.h */,
 				491D1DEE151D3697001F11AC /* LoginViewController.m */,
 				49C28FE1151971E300AD1396 /* Classes */,
 				49C28FC2151965B400AD1396 /* Supporting Files */,
+				49F024D3151B93220064F243 /* RatingViewController.h */,
+				49F024D4151B93220064F243 /* RatingViewController.m */,
+				496E5E3E151D93F60041123E /* NoteViewController.h */,
+				496E5E3F151D93F60041123E /* NoteViewController.m */,
 			);
 			path = "Mobile Mentch";
 			sourceTree = "<group>";
@@ -207,27 +249,9 @@
 		49F02542151BAE280064F243 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				491D1DF2151D3FAB001F11AC /* logos */,
+				491D1DF1151D3F9E001F11AC /* traits */,
 				492C789E151BE67C00CFC087 /* stars */,
-				49F02543151BAE280064F243 /* Approval.png */,
-				49F02544151BAE280064F243 /* Attentiveness.png */,
-				49F02545151BAE280064F243 /* Communication.png */,
-				49F02546151BAE280064F243 /* Confidence.png */,
-				49F02547151BAE280064F243 /* Contentment.png */,
-				49F02548151BAE280064F243 /* Forgiveness.png */,
-				49F02549151BAE280064F243 /* Happiness.png */,
-				49F0254A151BAE280064F243 /* Health:Excercise.png */,
-				49F0254B151BAE280064F243 /* Healthy Eating.png */,
-				49F0254C151BAE280064F243 /* Honesty.png */,
-				49F0254D151BAE280064F243 /* Kindness.png */,
-				49F0254E151BAE280064F243 /* Laziness.png */,
-				49F0254F151BAE280064F243 /* Open Mindedness.png */,
-				49F02550151BAE280064F243 /* Patience.png */,
-				49F02551151BAE280064F243 /* Positivity:Negativity.png */,
-				49F02552151BAE280064F243 /* Self Control.png */,
-				49F02553151BAE280064F243 /* Sensitivity:Compassion.png */,
-				49F02554151BAE280064F243 /* Stress Management.png */,
-				49F02555151BAE280064F243 /* Time Management.png */,
-				49F02556151BAE280064F243 /* Worry.png */,
 			);
 			path = images;
 			sourceTree = "<group>";
@@ -285,7 +309,6 @@
 				49C28FC6151965B500AD1396 /* InfoPlist.strings in Resources */,
 				49C28FCF151965B600AD1396 /* MainStoryboard_iPhone.storyboard in Resources */,
 				49C28FD2151965B600AD1396 /* MainStoryboard_iPad.storyboard in Resources */,
-				49F024D7151B93220064F243 /* RatingViewController.xib in Resources */,
 				49F02557151BAE280064F243 /* Approval.png in Resources */,
 				49F02558151BAE280064F243 /* Attentiveness.png in Resources */,
 				49F02559151BAE280064F243 /* Communication.png in Resources */,
@@ -311,6 +334,8 @@
 				492C78A4151BE67C00CFC087 /* star-gold256.png in Resources */,
 				492C78A5151BE67C00CFC087 /* star-red256.png in Resources */,
 				492C78A6151BE67C00CFC087 /* star-white256.png in Resources */,
+				491D1DF5151D3FB9001F11AC /* logo.png in Resources */,
+				491D1DF6151D3FB9001F11AC /* SplashFinal.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -329,6 +354,7 @@
 				49C28FE4151971F600AD1396 /* Entry.m in Sources */,
 				49F024D6151B93220064F243 /* RatingViewController.m in Sources */,
 				491D1DEF151D3697001F11AC /* LoginViewController.m in Sources */,
+				496E5E40151D93F60041123E /* NoteViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

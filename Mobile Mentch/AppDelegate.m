@@ -11,7 +11,7 @@
 
 @implementation AppDelegate
 
-@synthesize window = _window, databaseName, databasePath, traits, currentTrait;
+@synthesize window = _window, databaseName, databasePath, traits, currentTrait, notes;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {

@@ -22,6 +22,7 @@
 @property (nonatomic, copy) NSString *databaseName, *databasePath;
 @property (nonatomic, retain) NSMutableDictionary *traits;
 @property (nonatomic, retain) Trait *currentTrait;
+@property (nonatomic, retain) NSString *notes;
 
 -(void) checkAndCreateDatabase;
 -(void) readTraitsFromDatabase;
