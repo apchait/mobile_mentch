@@ -11,7 +11,7 @@
 #import "Entry.h"
 @implementation AppDelegate
 
-@synthesize window = _window, databaseName, databasePath, traits, allEntries,entriesPath, currentTrait, currentEntry, notes, dateKey;
+@synthesize window = _window, databaseName, databasePath, traits, allEntries,entriesPath, currentTrait, currentEntry, dateKey;
 
 -(BOOL) writeEntriesFile{
     if ([self.allEntries writeToFile:entriesPath atomically:YES] == YES){
@@ -37,12 +37,14 @@
     // Bring in all the traits
     self.traits = [[[NSMutableDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"traits" ofType:@"plist"]] objectForKey:@"traits"];
     
+    // Bring in all the entries
     NSArray *documentPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDir = [documentPaths objectAtIndex:0];
-    
     self.entriesPath = [documentsDir stringByAppendingPathComponent: @"entries.plist"];
+    //[[NSFileManager defaultManager] removeItemAtPath:entriesPath error:nil];
     self.allEntries = [[NSMutableDictionary alloc] initWithContentsOfFile:entriesPath];
     
+    // Set up an empty dictionary if this is the first time the app is loaded
     if ([self.allEntries count] == 0) {
         self.allEntries = [[NSMutableDictionary alloc] init];
         for (id trait in self.traits){
@@ -53,9 +55,6 @@
         
     // Initialize variables
     self.currentTrait = [[Trait alloc] init];
-    
-    
-    
     
     
     /*
@@ -87,21 +86,20 @@
 - (BOOL) saveCurrentEntry{
     // This method is called when done is clicked on RatingViewController, the trait being worked on at the time is saved into the database for the current date, overwriting existing entries if necessary
     
-    // Open the plist
-    //NSMutableDictionary *ratings = [[NSMutableDictionary alloc] init];
+    // Check for empty notes or rating
+    if(![currentEntry valueForKey:@"notes"]){
+        [currentEntry setValue:@"" forKey:@"notes"];
+    }
+    if (![currentEntry valueForKey:@"rating"]) {
+        [currentEntry setValue:[NSNumber numberWithInt:0] forKey:@"rating"];
+    }
     
-    //[ratings setObject:[[NSMutableDictionary alloc] init] forKey:currentEntry.traitName];
+    // Set up a dictionary with data from the current entry
+    NSMutableDictionary *data = [[NSMutableDictionary alloc] initWithObjects:[NSArray arrayWithObjects:[currentEntry valueForKey:@"rating"], [currentEntry valueForKey:@"notes"], nil] forKeys:[NSArray arrayWithObjects:@"rating",@"notes", nil]];
     
-    NSMutableDictionary *data = [[NSMutableDictionary alloc] initWithObjects:[NSArray arrayWithObjects:currentEntry.rating, currentEntry.notes, nil] forKeys:[NSArray arrayWithObjects:@"rating",@"notes", nil]];
-    
-    // Add it to the dictionary
-    [[allEntries objectForKey:currentEntry.traitName] setObject:data forKey:dateKey];
-    
-    NSLog(@"%@", [allEntries description]);
-    
-    [self writeEntriesFile];
-    
-    // Save the plist
+    // Add it to the dictionary at the name of the trait at todays date overwriting existing entries
+    NSString *currentTraitName = [self.currentTrait valueForKey:@"name"];
+    [[allEntries objectForKey:currentTraitName] setObject:data forKey:dateKey];
     
     return YES;
 }
@@ -240,6 +238,7 @@
 {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    [self writeEntriesFile];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
@@ -255,6 +254,7 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    [self writeEntriesFile];
 }
 
 @end

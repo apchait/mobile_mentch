@@ -9,6 +9,6 @@
 #import "Entry.h"
 
 @implementation Entry
-@synthesize traitName, notes, rating;
+@synthesize traitName, description, notes, rating;
 
 @end

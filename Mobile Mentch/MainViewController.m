@@ -9,6 +9,7 @@
 #import "MainViewController.h"
 #import "AppDelegate.h"
 #import "Trait.h"
+#import "Entry.h"
 
 @interface MainViewController ()
 
@@ -46,16 +47,22 @@
     else {
         cell.imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@.png", [currentTrait valueForKey:@"icon"]]];
     }
+    
+    // If an entry exists for today, use a checkmark
+    if([[[myApp allEntries] objectForKey:cell.textLabel.text] valueForKey:[myApp dateKey]] && [[[[[myApp allEntries] objectForKey:cell.textLabel.text] valueForKey:[myApp dateKey]] valueForKey:@"rating"] intValue] != 0){
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    }
+    
 	return cell;
 }
 
 - (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    myApp.currentTrait = [[Trait alloc] init];
-    myApp.currentTrait = [[myApp traits] objectForKey:[[[myApp traits] allKeys] objectAtIndex:[indexPath row]]];
-    // Set up notes
-    NSString *savedNotes = [[[myApp.allEntries valueForKey:[myApp.currentTrait valueForKey:@"name"]] valueForKey:[myApp dateKey]] valueForKey:@"notes"];
-    if(savedNotes != NULL){
-        myApp.notes = savedNotes;
+    // Get today's entry for the trait selected
+    NSString *traitName = [[[self.tableView cellForRowAtIndexPath:indexPath] textLabel] text];
+    myApp.currentTrait = [myApp.traits valueForKey:traitName];
+    myApp.currentEntry = [[myApp.allEntries valueForKey:traitName] valueForKey:[myApp dateKey]];
+    if (!myApp.currentEntry) {
+        myApp.currentEntry = [[Entry alloc] init];
     }
     return indexPath;
 }
@@ -65,7 +72,6 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    
     self.myApp = [[UIApplication sharedApplication] delegate];
 }
 

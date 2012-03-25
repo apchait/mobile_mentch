@@ -19,7 +19,6 @@
 @property (nonatomic, retain) Trait *currentTrait;
 // switch notes tracking into current entry
 @property (nonatomic, retain) Entry *currentEntry;
-@property (nonatomic, retain) NSString *notes;
 @property (nonatomic, retain) NSMutableDictionary *allEntries;
 
 - (BOOL) saveCurrentEntry;

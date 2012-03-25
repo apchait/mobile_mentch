@@ -21,45 +21,29 @@
     NSLog(@"%@", [segue identifier]);
     // if sending to rating view, make my notes myApp's notes
     if ([[segue identifier] isEqualToString:@"toNoteView"]) {
-        if ([notes.text isEqualToString: @"Add Notes Here..."]) {
-            myApp.notes = @"";            
-        }
-        else {
-            myApp.notes = [notes text];
-        }
+    
     }
-    // if finishing up, delete myApp's notes
+    // if finishing up, save and clean up
     else if ([[segue identifier] isEqualToString:[NSString stringWithFormat:@"toMainView"]]){
-        myApp.currentEntry = [[Entry alloc] init];
-        NSLog(@"%@",[myApp.currentTrait valueForKey:@"name"]);
-        //myApp.currentEntry.traitName = @"HI";
-        myApp.currentEntry.traitName = [NSString stringWithFormat:@"%@", [myApp.currentTrait valueForKey:@"name"]];
-        if ([myApp.notes isEqualToString:@"Add Notes Here..."]) {
-            myApp.currentEntry.notes = [NSString stringWithFormat:@""];
-        }
-        else{
-            myApp.currentEntry.notes = [NSString stringWithFormat:@"%@", myApp.notes];
-        }
-        
-        myApp.notes = @"Add Notes Here...";
+        Entry *currentEntry = [myApp currentEntry];
         
         if ([star5 isSelected]) {
-            myApp.currentEntry.rating = [NSNumber numberWithInt:5];   
+            [currentEntry setValue:[NSNumber numberWithInt:5] forKey:@"rating"];
         }
         else if ([star4 isSelected]){
-            myApp.currentEntry.rating = [NSNumber numberWithInt:4];
+            [currentEntry setValue:[NSNumber numberWithInt:4] forKey:@"rating"];
         }
         else if ([star3 isSelected]){
-            myApp.currentEntry.rating = [NSNumber numberWithInt:3];
+            [currentEntry setValue:[NSNumber numberWithInt:3] forKey:@"rating"];
         }
         else if ([star2 isSelected]){
-            myApp.currentEntry.rating = [NSNumber numberWithInt:2];
+            [currentEntry setValue:[NSNumber numberWithInt:2] forKey:@"rating"];
         }
         else if ([star1 isSelected]){
-            myApp.currentEntry.rating = [NSNumber numberWithInt:1];
+            [currentEntry setValue:[NSNumber numberWithInt:1] forKey:@"rating"];
         }
         else {
-            myApp.currentEntry.rating = [NSNumber numberWithInt:0];
+            [currentEntry setValue:[NSNumber numberWithInt:0] forKey:@"rating"];
         }
         // save here
         [myApp saveCurrentEntry];
@@ -117,15 +101,16 @@
     // Do any additional setup after loading the view from its nib.
     myApp = [[UIApplication sharedApplication] delegate];
     Trait *currentTrait = [myApp currentTrait];
+    Entry *currentEntry = [myApp currentEntry];
+    NSLog(@"%@",[currentEntry description]);
     [navBarTitle setTitle:[currentTrait valueForKey:@"name"]];
-    
     if ([[currentTrait valueForKey:@"icon"] isEqualToString:@""]){
         [traitImage setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@.png", [currentTrait valueForKey:@"name"]]]];
     }
     else {
         [traitImage setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@.png", [currentTrait valueForKey:@"icon"]]]];
     }
-                          
+    
     if ([[currentTrait valueForKey:@"customDescription"] isEqualToString: [NSString stringWithFormat:@""]]){
         [traitDescription setText:[currentTrait valueForKey:@"description"]];
     }
@@ -134,11 +119,19 @@
     }
     
     // Set up the notes
-    if (myApp.notes) {
-        [notes setText:myApp.notes];
+    if ([currentEntry valueForKey:@"notes"]){
+        [notes setText:[currentEntry valueForKey:@"notes"]];
     }
-    // Check if there are already notes for today and set them to myApp.notes
-    NSNumber *rating = [[[myApp.allEntries valueForKey:[myApp.currentTrait valueForKey:@"name"]] valueForKey:[myApp dateKey]] valueForKey:@"rating"];
+    else{
+        [notes setText:@"Add Notes Here..."];
+    }
+    NSNumber *rating;
+    if ([currentEntry valueForKey:@"rating"]){
+        rating = [currentEntry valueForKey:@"rating"];
+    }
+    else {
+        rating = [NSNumber numberWithInt:0];
+    }
     
     if ([rating intValue] == 1) {
         [self starPressed:star1];

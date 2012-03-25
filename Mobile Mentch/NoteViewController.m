@@ -9,6 +9,7 @@
 #import "NoteViewController.h"
 #import "AppDelegate.h"
 #import "Trait.h"
+#import "Entry.h"
 
 @interface NoteViewController ()
 
@@ -35,11 +36,12 @@
 	// Do any additional setup after loading the view.
     [textView becomeFirstResponder];
     AppDelegate *myApp = [[UIApplication sharedApplication] delegate];
-    if ([myApp.notes isEqualToString:@"Add Notes Here..."]) {
-        self.textView.text = @"";
+    Entry *currentEntry = [myApp currentEntry];
+    if ([currentEntry valueForKey:@"notes"]) {
+        self.textView.text = [currentEntry valueForKey:@"notes"];
     }
     else {
-        self.textView.text = myApp.notes;
+        self.textView.text = @"";
     }
     
     navBarTitle.title = [NSString stringWithFormat:@"%@ Notes",[[myApp currentTrait] valueForKey:@"name"]];
@@ -48,7 +50,8 @@
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if([sender tag] == 1){
         AppDelegate *myApp = [[UIApplication sharedApplication] delegate];
-        myApp.notes = [NSString stringWithFormat:@"%@",[textView text]];
+        Entry *currentEntry = [myApp currentEntry];
+        [currentEntry setValue:self.textView.text forKey:@"notes"];
     }
 }
 
