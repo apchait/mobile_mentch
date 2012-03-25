@@ -20,6 +20,11 @@
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <items>
                                 <navigationItem title="Journal" id="2mh-e1-fpo">
+                                    <barButtonItem key="leftBarButtonItem" title="Edit" id="GIr-5w-gHD">
+                                        <connections>
+                                            <action selector="edit:" destination="bJE-Oi-80X" id="8e4-nc-Bgm"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem key="rightBarButtonItem" style="plain" id="xZ4-nS-Pp3">
                                         <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="gIf-OZ-gu6">
                                             <rect key="frame" x="297" y="12" width="18" height="19"/>
@@ -79,6 +84,9 @@
                             <outlet property="delegate" destination="bJE-Oi-80X" id="FtO-I3-lAr"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="editButton" destination="GIr-5w-gHD" id="tMI-8I-1Pb"/>
+                    </connections>
                 </tableViewController>
             </objects>
             <point key="canvasLocation" x="-30" y="187"/>
@@ -477,6 +485,10 @@
         </class>
         <class className="MainViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MainViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="edit:"/>
+                <relationship kind="outlet" name="editButton" candidateClass="UIBarButtonItem"/>
+            </relationships>
         </class>
         <class className="NoteViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/NoteViewController.h"/>

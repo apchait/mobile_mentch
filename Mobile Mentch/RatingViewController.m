@@ -18,7 +18,6 @@
 @synthesize myApp, traitTitle, traitDescription, traitImage, notes, navBarTitle, star1, star2, star3, star4, star5;
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    NSLog(@"%@", [segue identifier]);
     // if sending to rating view, make my notes myApp's notes
     if ([[segue identifier] isEqualToString:@"toNoteView"]) {
     
@@ -52,7 +51,6 @@
 -(IBAction)starPressed:(id)sender{
     NSArray *stars = [[NSArray alloc] initWithObjects:star1, star2, star3, star4, star5, nil];
     BOOL foundSender = NO;
-    NSLog(@"Pressed");
     for (NSUInteger i = 0; i<[stars count]; i++) {
         UIButton *button = [stars objectAtIndex:i];
         if (button == sender) {
@@ -80,9 +78,8 @@
     
 }
 -(IBAction)starSwiped:(id)sender{
-    UIButton *button = sender;
-    CGRect rect = [button frame];
-    NSLog(@"Swiped");
+    //UIButton *button = sender;
+    //CGRect rect = [button frame];
 }
 
 #pragma mark Loadup Methods
@@ -102,7 +99,6 @@
     myApp = [[UIApplication sharedApplication] delegate];
     Trait *currentTrait = [myApp currentTrait];
     Entry *currentEntry = [myApp currentEntry];
-    NSLog(@"%@",[currentEntry description]);
     [navBarTitle setTitle:[currentTrait valueForKey:@"name"]];
     if ([[currentTrait valueForKey:@"icon"] isEqualToString:@""]){
         [traitImage setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@.png", [currentTrait valueForKey:@"name"]]]];

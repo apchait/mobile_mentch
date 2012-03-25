@@ -28,12 +28,12 @@
     return TRUE;
 }
 
--(Boolean) edit:(id)traitId withTrait:(Trait *)newTrait{
+-(Boolean) editId:(id)traitId withTrait:(Trait *)newTrait{
  
     return TRUE;
 }
 
--(Boolean) delete:(id)traitId{
+-(Boolean) deleteId:(id)traitId{
     
     return TRUE;
 }

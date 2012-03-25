@@ -13,5 +13,7 @@
 
 @property (strong, nonatomic) UIPopoverController *flipsidePopoverController;
 @property (nonatomic, retain) AppDelegate *myApp;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *editButton;
 
+-(IBAction)edit:(id)sender;
 @end

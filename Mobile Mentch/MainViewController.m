@@ -16,6 +16,7 @@
 @end
 
 @implementation MainViewController
+@synthesize editButton;
 
 @synthesize flipsidePopoverController = _flipsidePopoverController, myApp;
 
@@ -37,7 +38,15 @@
 	
     // Get the trait list that was loaded in the App Delegate and set up the table view cells
     NSDictionary *traits = [[NSDictionary alloc] initWithDictionary:[myApp traits]];
-    NSDictionary *currentTrait = [traits objectForKey:[[traits allKeys] objectAtIndex:[indexPath row]]];
+    NSDictionary *currentTrait;
+    
+    // Use the traitOrder to set up
+    for (NSString *trait in [myApp traitsOrder]) {
+        if([[[[myApp traitsOrder] valueForKey:trait] valueForKey:@"index"] intValue] == [indexPath row]){
+             currentTrait = [traits objectForKey:trait];
+        }
+    }
+    
     cell.textLabel.text = [currentTrait objectForKey:@"name"];
     cell.detailTextLabel.text = [currentTrait objectForKey:@"description"];
     // Some cells need special icon names to deal with a / or : in the filename
@@ -67,6 +76,54 @@
     return indexPath;
 }
 
+-(IBAction)edit:(id)sender{
+    self.editing = !self.editing;
+    if (self.editing) {
+        editButton.title = @"Done";
+        editButton.style = UIBarButtonItemStyleDone;
+    }
+    else {
+        [myApp writeTraitsOrderFile];
+        editButton.title = @"Edit";
+        editButton.style = UIBarButtonItemStylePlain;
+    }
+}
+
+//- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath{
+    //return UITableViewCellRe;
+//}
+
+- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath{
+    NSLog(@"From %d", [fromIndexPath row]);
+    NSLog(@"To %d", [toIndexPath row]);
+    NSLog(@"From %@", [[[tableView cellForRowAtIndexPath:fromIndexPath] textLabel] text]);
+    NSLog(@"To %@", [[[tableView cellForRowAtIndexPath:toIndexPath] textLabel] text]);
+    NSString *fromTrait = [[[tableView cellForRowAtIndexPath:fromIndexPath] textLabel] text];
+    //NSString *toTrait = [[[tableView cellForRowAtIndexPath:toIndexPath] textLabel] text];
+    
+    if ([fromIndexPath row] < [toIndexPath row]) {
+        for (NSUInteger i = [fromIndexPath row] + 1; i <= [toIndexPath row]; i++) {
+            for (id trait in myApp.traitsOrder){
+                if ([[[myApp.traitsOrder valueForKey:trait] valueForKey:@"index"] intValue] == i) {
+                    [[myApp.traitsOrder valueForKey:trait] setValue:[NSNumber numberWithInt:i-1] forKey:@"index"];
+                }
+            }
+        }
+    }
+    else {
+        for (NSUInteger i = [fromIndexPath row] - 1; i >= [toIndexPath row]; i--) {
+            for (id trait in myApp.traitsOrder){
+                if ([[[myApp.traitsOrder valueForKey:trait] valueForKey:@"index"] intValue] == i) {
+                    [[myApp.traitsOrder valueForKey:trait] setValue:[NSNumber numberWithInt:i+1] forKey:@"index"];
+                }
+            }
+        }
+    }
+    [[[myApp traitsOrder] valueForKey:fromTrait] setValue:[NSNumber numberWithInt:[toIndexPath row]] forKey:@"index"];
+    NSLog(@"%@",[[myApp traitsOrder] description]);
+
+}
+
 #pragma mark - Regular View methods
 - (void)viewDidLoad
 {
@@ -77,6 +134,7 @@
 
 - (void)viewDidUnload
 {
+    [self setEditButton:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }

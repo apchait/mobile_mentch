@@ -14,7 +14,6 @@
 		492C78A4151BE67C00CFC087 /* star-gold256.png in Resources */ = {isa = PBXBuildFile; fileRef = 492C78A0151BE67C00CFC087 /* star-gold256.png */; };
 		492C78A5151BE67C00CFC087 /* star-red256.png in Resources */ = {isa = PBXBuildFile; fileRef = 492C78A1151BE67C00CFC087 /* star-red256.png */; };
 		492C78A6151BE67C00CFC087 /* star-white256.png in Resources */ = {isa = PBXBuildFile; fileRef = 492C78A2151BE67C00CFC087 /* star-white256.png */; };
-		493898CE151E547A00CB8879 /* entries.plist in Resources */ = {isa = PBXBuildFile; fileRef = 493898CD151E547A00CB8879 /* entries.plist */; };
 		496E5E40151D93F60041123E /* NoteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 496E5E3F151D93F60041123E /* NoteViewController.m */; };
 		49C28FBC151965B400AD1396 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49C28FBB151965B400AD1396 /* UIKit.framework */; };
 		49C28FBE151965B400AD1396 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49C28FBD151965B400AD1396 /* Foundation.framework */; };
@@ -28,7 +27,6 @@
 		49C28FD8151965B600AD1396 /* FlipsideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C28FD7151965B600AD1396 /* FlipsideViewController.m */; };
 		49C28FE0151971DD00AD1396 /* Trait.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C28FDF151971DD00AD1396 /* Trait.m */; };
 		49C28FE4151971F600AD1396 /* Entry.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C28FE3151971F600AD1396 /* Entry.m */; };
-		49C28FEA151A2EBB00AD1396 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 49C28FE9151A2EBB00AD1396 /* libsqlite3.dylib */; };
 		49F024D6151B93220064F243 /* RatingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49F024D4151B93220064F243 /* RatingViewController.m */; };
 		49F02557151BAE280064F243 /* Approval.png in Resources */ = {isa = PBXBuildFile; fileRef = 49F02543151BAE280064F243 /* Approval.png */; };
 		49F02558151BAE280064F243 /* Attentiveness.png in Resources */ = {isa = PBXBuildFile; fileRef = 49F02544151BAE280064F243 /* Attentiveness.png */; };
@@ -62,7 +60,6 @@
 		492C78A0151BE67C00CFC087 /* star-gold256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star-gold256.png"; sourceTree = "<group>"; };
 		492C78A1151BE67C00CFC087 /* star-red256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star-red256.png"; sourceTree = "<group>"; };
 		492C78A2151BE67C00CFC087 /* star-white256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star-white256.png"; sourceTree = "<group>"; };
-		493898CD151E547A00CB8879 /* entries.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = entries.plist; sourceTree = "<group>"; };
 		496E5E3E151D93F60041123E /* NoteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteViewController.h; sourceTree = "<group>"; };
 		496E5E3F151D93F60041123E /* NoteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteViewController.m; sourceTree = "<group>"; };
 		49C28FB7151965B400AD1396 /* Mobile Mentch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mobile Mentch.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -85,7 +82,6 @@
 		49C28FDF151971DD00AD1396 /* Trait.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Trait.m; sourceTree = "<group>"; };
 		49C28FE2151971F600AD1396 /* Entry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Entry.h; sourceTree = "<group>"; };
 		49C28FE3151971F600AD1396 /* Entry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Entry.m; sourceTree = "<group>"; };
-		49C28FE9151A2EBB00AD1396 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		49F024D3151B93220064F243 /* RatingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RatingViewController.h; sourceTree = "<group>"; };
 		49F024D4151B93220064F243 /* RatingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RatingViewController.m; sourceTree = "<group>"; };
 		49F02543151BAE280064F243 /* Approval.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Approval.png; sourceTree = "<group>"; };
@@ -116,7 +112,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				49C28FEA151A2EBB00AD1396 /* libsqlite3.dylib in Frameworks */,
 				49C28FBC151965B400AD1396 /* UIKit.framework in Frameworks */,
 				49C28FBE151965B400AD1396 /* Foundation.framework in Frameworks */,
 				49C28FC0151965B400AD1396 /* CoreGraphics.framework in Frameworks */,
@@ -176,7 +171,6 @@
 		49C28FAC151965AB00AD1396 = {
 			isa = PBXGroup;
 			children = (
-				49C28FE9151A2EBB00AD1396 /* libsqlite3.dylib */,
 				49C28FC1151965B400AD1396 /* Mobile Mentch */,
 				49C28FBA151965B400AD1396 /* Frameworks */,
 				49C28FB8151965B400AD1396 /* Products */,
@@ -211,16 +205,16 @@
 				49C28FD0151965B600AD1396 /* MainStoryboard_iPad.storyboard */,
 				49C28FD3151965B600AD1396 /* MainViewController.h */,
 				49C28FD4151965B600AD1396 /* MainViewController.m */,
-				49C28FD6151965B600AD1396 /* FlipsideViewController.h */,
-				49C28FD7151965B600AD1396 /* FlipsideViewController.m */,
-				491D1DED151D3697001F11AC /* LoginViewController.h */,
-				491D1DEE151D3697001F11AC /* LoginViewController.m */,
-				49C28FE1151971E300AD1396 /* Classes */,
-				49C28FC2151965B400AD1396 /* Supporting Files */,
 				49F024D3151B93220064F243 /* RatingViewController.h */,
 				49F024D4151B93220064F243 /* RatingViewController.m */,
 				496E5E3E151D93F60041123E /* NoteViewController.h */,
 				496E5E3F151D93F60041123E /* NoteViewController.m */,
+				49C28FE1151971E300AD1396 /* Classes */,
+				49C28FC2151965B400AD1396 /* Supporting Files */,
+				49C28FD6151965B600AD1396 /* FlipsideViewController.h */,
+				49C28FD7151965B600AD1396 /* FlipsideViewController.m */,
+				491D1DED151D3697001F11AC /* LoginViewController.h */,
+				491D1DEE151D3697001F11AC /* LoginViewController.m */,
 			);
 			path = "Mobile Mentch";
 			sourceTree = "<group>";
@@ -229,7 +223,6 @@
 			isa = PBXGroup;
 			children = (
 				49F0256B151BB3CB0064F243 /* traits.plist */,
-				493898CD151E547A00CB8879 /* entries.plist */,
 				49C28FC3151965B400AD1396 /* Mobile Mentch-Info.plist */,
 				49C28FC4151965B500AD1396 /* InfoPlist.strings */,
 				49C28FC7151965B500AD1396 /* main.m */,
@@ -339,7 +332,6 @@
 				492C78A6151BE67C00CFC087 /* star-white256.png in Resources */,
 				491D1DF5151D3FB9001F11AC /* logo.png in Resources */,
 				491D1DF6151D3FB9001F11AC /* SplashFinal.jpg in Resources */,
-				493898CE151E547A00CB8879 /* entries.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
