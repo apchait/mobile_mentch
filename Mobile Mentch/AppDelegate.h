@@ -10,19 +10,19 @@
 #import <sqlite3.h>
 #define kSQLFile   @"data.sqlite3"
 @class Trait;
-
-@interface AppDelegate : UIResponder <UIApplicationDelegate>{
-    NSString *databaseName;
-    NSString *databasePath;
-    Trait *currentTrait;
-    NSMutableDictionary *traits;
-}
+@class Entry;
+@interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-@property (nonatomic, copy) NSString *databaseName, *databasePath;
+@property (nonatomic, copy) NSString *databaseName, *databasePath, *entriesPath, *dateKey;
 @property (nonatomic, retain) NSMutableDictionary *traits;
 @property (nonatomic, retain) Trait *currentTrait;
+// switch notes tracking into current entry
+@property (nonatomic, retain) Entry *currentEntry;
 @property (nonatomic, retain) NSString *notes;
+@property (nonatomic, retain) NSMutableDictionary *allEntries;
+
+- (BOOL) saveCurrentEntry;
 
 -(void) checkAndCreateDatabase;
 -(void) readTraitsFromDatabase;

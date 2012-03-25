@@ -8,18 +8,57 @@
 
 #import "AppDelegate.h"
 #import "Trait.h"
-
+#import "Entry.h"
 @implementation AppDelegate
 
-@synthesize window = _window, databaseName, databasePath, traits, currentTrait, notes;
+@synthesize window = _window, databaseName, databasePath, traits, allEntries,entriesPath, currentTrait, currentEntry, notes, dateKey;
 
+-(BOOL) writeEntriesFile{
+    if ([self.allEntries writeToFile:entriesPath atomically:YES] == YES){
+        NSLog(@"YES GO");
+        return YES;
+    }
+    else {
+        // raise alert
+        NSLog(@"NO GO");
+        return NO;
+    }
+}
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    // Set the date
+    NSDateFormatter *dayFormat = [[NSDateFormatter alloc] init];
+    // [dayFormat setDateFormat:@"MMM dd, yyyy"];
+    [dayFormat setDateFormat:@"MMddyyyy"];
+    dateKey = [dayFormat stringFromDate:[NSDate date]];
+    NSLog(@"%@",[dayFormat stringFromDate:[NSDate date]]);
     
+    // Bring in all the traits
+    self.traits = [[[NSMutableDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"traits" ofType:@"plist"]] objectForKey:@"traits"];
+    
+    NSArray *documentPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDir = [documentPaths objectAtIndex:0];
+    
+    self.entriesPath = [documentsDir stringByAppendingPathComponent: @"entries.plist"];
+    self.allEntries = [[NSMutableDictionary alloc] initWithContentsOfFile:entriesPath];
+    
+    if ([self.allEntries count] == 0) {
+        self.allEntries = [[NSMutableDictionary alloc] init];
+        for (id trait in self.traits){
+            [self.allEntries setValue:[[NSMutableDictionary alloc]init] forKey:trait];
+        }
+        [self writeEntriesFile];
+    }
+        
     // Initialize variables
     self.currentTrait = [[Trait alloc] init];
     
+    
+    
+    
+    
+    /*
     // Initialize sqlite
     databaseName = @"traits.sqlite";
     
@@ -40,13 +79,32 @@
     //NSString *plistPath = [[NSString alloc] initWithString:[documentsDir stringByAppendingPathComponent: @"traits.plist"]];
     
     //self.traits = [[[NSMutableDictionary alloc] initWithContentsOfFile:plistPath] objectForKey:@"traits"];
-    
-    // Open the traits plist from the Supporting Files folder to load traits and their descriptions
-    self.traits = [[[NSMutableDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"traits" ofType:@"plist"]] objectForKey:@"traits"];
+     */    
     
     return YES;
 }
-		
+
+- (BOOL) saveCurrentEntry{
+    // This method is called when done is clicked on RatingViewController, the trait being worked on at the time is saved into the database for the current date, overwriting existing entries if necessary
+    
+    // Open the plist
+    //NSMutableDictionary *ratings = [[NSMutableDictionary alloc] init];
+    
+    //[ratings setObject:[[NSMutableDictionary alloc] init] forKey:currentEntry.traitName];
+    
+    NSMutableDictionary *data = [[NSMutableDictionary alloc] initWithObjects:[NSArray arrayWithObjects:currentEntry.rating, currentEntry.notes, nil] forKeys:[NSArray arrayWithObjects:@"rating",@"notes", nil]];
+    
+    // Add it to the dictionary
+    [[allEntries objectForKey:currentEntry.traitName] setObject:data forKey:dateKey];
+    
+    NSLog(@"%@", [allEntries description]);
+    
+    [self writeEntriesFile];
+    
+    // Save the plist
+    
+    return YES;
+}
 - (void) checkAndCreateDatabase {
     // Check if the SQL database has already been saved to the users phone, if not then copy it over
     BOOL success;

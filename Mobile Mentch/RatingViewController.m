@@ -9,6 +9,7 @@
 #import "RatingViewController.h"
 #import "AppDelegate.h"
 #import "Trait.h"
+#import "Entry.h"
 @interface RatingViewController ()
 
 @end
@@ -19,23 +20,51 @@
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     NSLog(@"%@", [segue identifier]);
     // if sending to rating view, make my notes myApp's notes
-    if ([segue identifier] == @"toNoteView") {
-        if (notes.text != @"Add Notes Here...") {
-            myApp.notes = [notes text];
+    if ([[segue identifier] isEqualToString:@"toNoteView"]) {
+        if ([notes.text isEqualToString: @"Add Notes Here..."]) {
+            myApp.notes = @"";            
         }
         else {
-            myApp.notes = @"";
+            myApp.notes = [notes text];
         }
     }
     // if finishing up, delete myApp's notes
     else if ([[segue identifier] isEqualToString:[NSString stringWithFormat:@"toMainView"]]){
+        myApp.currentEntry = [[Entry alloc] init];
+        NSLog(@"%@",[myApp.currentTrait valueForKey:@"name"]);
+        //myApp.currentEntry.traitName = @"HI";
+        myApp.currentEntry.traitName = [NSString stringWithFormat:@"%@", [myApp.currentTrait valueForKey:@"name"]];
+        if ([myApp.notes isEqualToString:@"Add Notes Here..."]) {
+            myApp.currentEntry.notes = [NSString stringWithFormat:@""];
+        }
+        else{
+            myApp.currentEntry.notes = [NSString stringWithFormat:@"%@", myApp.notes];
+        }
+        
         myApp.notes = @"Add Notes Here...";
+        
+        if ([star5 isSelected]) {
+            myApp.currentEntry.rating = [NSNumber numberWithInt:5];   
+        }
+        else if ([star4 isSelected]){
+            myApp.currentEntry.rating = [NSNumber numberWithInt:4];
+        }
+        else if ([star3 isSelected]){
+            myApp.currentEntry.rating = [NSNumber numberWithInt:3];
+        }
+        else if ([star2 isSelected]){
+            myApp.currentEntry.rating = [NSNumber numberWithInt:2];
+        }
+        else if ([star1 isSelected]){
+            myApp.currentEntry.rating = [NSNumber numberWithInt:1];
+        }
+        else {
+            myApp.currentEntry.rating = [NSNumber numberWithInt:0];
+        }
         // save here
+        [myApp saveCurrentEntry];
     }
 }
-
-
-
 -(IBAction)starPressed:(id)sender{
     NSArray *stars = [[NSArray alloc] initWithObjects:star1, star2, star3, star4, star5, nil];
     BOOL foundSender = NO;
@@ -65,68 +94,11 @@
         }
     }
     
-    
-    /*
-    //[sender setHighlightedImage:[UIImage imageNamed:@"star-red256.png"]];
-    if([sender isSelected]){
-        // un select self and everyone right
-        BOOL foundSender = NO;
-        for(UIButton *button in stars){
-            if (button == sender){
-                [button setSelected:NO];
-                foundSender = YES;
-            }
-            else if(foundSender){
-                // Not at sender yet
-                [button setSelected:YES];
-            }
-            else {
-                [button setSelected:NO];
-            }
-        }
-    }
-    else{
-        // select self and everyone left
-        BOOL foundSender = NO;
-        for(UIButton *button in stars){
-            if (button == sender){
-                [button setSelected:YES];
-                foundSender = YES;
-            }
-            else if(foundSender){
-                // Not at sender yet
-                [button setSelected:YES];
-            }
-            else {
-                [button setSelected:NO];
-            }
-            
-        }
-    }
-     */
 }
 -(IBAction)starSwiped:(id)sender{
     UIButton *button = sender;
     CGRect rect = [button frame];
     NSLog(@"Swiped");
-}
-#pragma mark TextViewDelegate Methods
-- (void)textViewDidBeginEditing:(UITextView *)textView{
-    if([[textView text] isEqualToString:@"Add Notes Here..."]){
-        [textView setText:@""];
-    }
-}
-
-- (void)textViewDidEndEditing:(UITextView *)textView{
-    if([[textView text] isEqualToString:@""]){
-        [textView setText:@"Add Notes Here..."];
-    }
-}
-
-- (BOOL)textViewShouldReturn:(UITextView *)textView {
-    // Close the keyboard when return is touched
-    [textView resignFirstResponder];
-    return NO;
 }
 
 #pragma mark Loadup Methods
@@ -162,9 +134,28 @@
     }
     
     // Set up the notes
-    if(myApp.notes != Nil){
-        [[self notes] setText:myApp.notes];
+    if (myApp.notes) {
+        [notes setText:myApp.notes];
     }
+    // Check if there are already notes for today and set them to myApp.notes
+    NSNumber *rating = [[[myApp.allEntries valueForKey:[myApp.currentTrait valueForKey:@"name"]] valueForKey:[myApp dateKey]] valueForKey:@"rating"];
+    
+    if ([rating intValue] == 1) {
+        [self starPressed:star1];
+    }
+    else if ([rating intValue] == 2) {
+        [self starPressed:star2];
+    }
+    else if ([rating intValue] == 3) {
+        [self starPressed:star3];
+    }
+    else if ([rating intValue] == 4) {
+        [self starPressed:star4];
+    }
+    else if ([rating intValue] == 5) {
+        [self starPressed:star5];
+    }
+    
 
 }
 

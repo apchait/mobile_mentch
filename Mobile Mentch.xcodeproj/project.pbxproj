@@ -14,6 +14,7 @@
 		492C78A4151BE67C00CFC087 /* star-gold256.png in Resources */ = {isa = PBXBuildFile; fileRef = 492C78A0151BE67C00CFC087 /* star-gold256.png */; };
 		492C78A5151BE67C00CFC087 /* star-red256.png in Resources */ = {isa = PBXBuildFile; fileRef = 492C78A1151BE67C00CFC087 /* star-red256.png */; };
 		492C78A6151BE67C00CFC087 /* star-white256.png in Resources */ = {isa = PBXBuildFile; fileRef = 492C78A2151BE67C00CFC087 /* star-white256.png */; };
+		493898CE151E547A00CB8879 /* entries.plist in Resources */ = {isa = PBXBuildFile; fileRef = 493898CD151E547A00CB8879 /* entries.plist */; };
 		496E5E40151D93F60041123E /* NoteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 496E5E3F151D93F60041123E /* NoteViewController.m */; };
 		49C28FBC151965B400AD1396 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49C28FBB151965B400AD1396 /* UIKit.framework */; };
 		49C28FBE151965B400AD1396 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49C28FBD151965B400AD1396 /* Foundation.framework */; };
@@ -61,6 +62,7 @@
 		492C78A0151BE67C00CFC087 /* star-gold256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star-gold256.png"; sourceTree = "<group>"; };
 		492C78A1151BE67C00CFC087 /* star-red256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star-red256.png"; sourceTree = "<group>"; };
 		492C78A2151BE67C00CFC087 /* star-white256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star-white256.png"; sourceTree = "<group>"; };
+		493898CD151E547A00CB8879 /* entries.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = entries.plist; sourceTree = "<group>"; };
 		496E5E3E151D93F60041123E /* NoteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteViewController.h; sourceTree = "<group>"; };
 		496E5E3F151D93F60041123E /* NoteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteViewController.m; sourceTree = "<group>"; };
 		49C28FB7151965B400AD1396 /* Mobile Mentch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mobile Mentch.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -227,6 +229,7 @@
 			isa = PBXGroup;
 			children = (
 				49F0256B151BB3CB0064F243 /* traits.plist */,
+				493898CD151E547A00CB8879 /* entries.plist */,
 				49C28FC3151965B400AD1396 /* Mobile Mentch-Info.plist */,
 				49C28FC4151965B500AD1396 /* InfoPlist.strings */,
 				49C28FC7151965B500AD1396 /* main.m */,
@@ -336,6 +339,7 @@
 				492C78A6151BE67C00CFC087 /* star-white256.png in Resources */,
 				491D1DF5151D3FB9001F11AC /* logo.png in Resources */,
 				491D1DF6151D3FB9001F11AC /* SplashFinal.jpg in Resources */,
+				493898CE151E547A00CB8879 /* entries.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

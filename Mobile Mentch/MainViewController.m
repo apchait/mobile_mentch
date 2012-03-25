@@ -52,8 +52,11 @@
 - (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     myApp.currentTrait = [[Trait alloc] init];
     myApp.currentTrait = [[myApp traits] objectForKey:[[[myApp traits] allKeys] objectAtIndex:[indexPath row]]];
-    NSLog(@"%@",[myApp.currentTrait description]);
-    NSLog(@"%@",[[[myApp traits] objectForKey:[[[myApp traits] allKeys] objectAtIndex:[indexPath row]]] description]);
+    // Set up notes
+    NSString *savedNotes = [[[myApp.allEntries valueForKey:[myApp.currentTrait valueForKey:@"name"]] valueForKey:[myApp dateKey]] valueForKey:@"notes"];
+    if(savedNotes != NULL){
+        myApp.notes = savedNotes;
+    }
     return indexPath;
 }
 

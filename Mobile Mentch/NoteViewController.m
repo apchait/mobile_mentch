@@ -62,7 +62,7 @@
 {
     // Remove the note view controller to delete the current note, else leave it there to continue editing
     if (buttonIndex != [actionSheet cancelButtonIndex]) {
-        [self performSegueWithIdentifier:@"backToRating" sender:self];
+        [self performSegueWithIdentifier:@"backToRating" sender:[self cancelButton]];
     }
 }
 

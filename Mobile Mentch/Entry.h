@@ -10,4 +10,7 @@
 
 @interface Entry : NSObject
 
+@property(nonatomic,retain) NSString *traitName, *notes;
+@property(nonatomic,retain) NSNumber *rating;
+
 @end
