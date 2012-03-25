@@ -111,7 +111,7 @@
         }
     }
     else {
-        for (NSUInteger i = [fromIndexPath row] - 1; i >= [toIndexPath row]; i--) {
+        for (NSInteger i = [fromIndexPath row] - 1; i >= [toIndexPath row]; i--) {
             for (id trait in myApp.traitsOrder){
                 if ([[[myApp.traitsOrder valueForKey:trait] valueForKey:@"index"] intValue] == i) {
                     [[myApp.traitsOrder valueForKey:trait] setValue:[NSNumber numberWithInt:i+1] forKey:@"index"];
