@@ -53,7 +53,10 @@
     BOOL foundSender = NO;
     for (NSUInteger i = 0; i<[stars count]; i++) {
         UIButton *button = [stars objectAtIndex:i];
+        // Highlight the star buttons up until the one that was tapped
         if (button == sender) {
+            // Set the current entry's rating
+            [[myApp currentEntry] setValue:[NSNumber numberWithInt:i+1] forKey:@"rating"];
             foundSender = YES;
             if ([sender isSelected]){
                 // if sender to the right is selected, leave selected

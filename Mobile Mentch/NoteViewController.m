@@ -49,9 +49,8 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if([sender tag] == 1){
-        AppDelegate *myApp = [[UIApplication sharedApplication] delegate];
-        Entry *currentEntry = [myApp currentEntry];
-        [currentEntry setValue:self.textView.text forKey:@"notes"];
+        AppDelegate *myApp = [[UIApplication sharedApplication] delegate];        
+        [[myApp currentEntry] setValue:self.textView.text forKey:@"notes"];
     }
 }
 

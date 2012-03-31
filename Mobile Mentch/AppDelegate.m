@@ -11,7 +11,83 @@
 #import "Entry.h"
 @implementation AppDelegate
 
-@synthesize window = _window, traits, traitsOrder, traitsOrderPath, allEntries,entriesPath, currentTrait, currentEntry, dateKey;
+@synthesize window = _window, traits, traitsOrder, traitsOrderPath, allEntries, todaysEntries, entriesPath, currentTrait, currentEntry, dateKey, dbDateFormatter, stringDateFormatter;
+
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
+    // Override point for customization after application launch.
+    // Set the date
+    self.stringDateFormatter = [[NSDateFormatter alloc] init];
+    self.dbDateFormatter = [[NSDateFormatter alloc] init];
+    [stringDateFormatter setDateFormat:kStringDateFormat];
+    [dbDateFormatter setDateFormat:kDbDateFormat];
+    dateKey = [dbDateFormatter stringFromDate:[NSDate date]];
+    
+    // Bring in all the traits
+    self.traits = [[[NSMutableDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"traits" ofType:@"plist"]] objectForKey:@"traits"];
+    
+    
+    // Bring in the trait order
+    NSArray *documentPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDir = [documentPaths objectAtIndex:0];
+    self.traitsOrderPath = [documentsDir stringByAppendingPathComponent: @"traitsOrder.plist"];
+    // Erase traits order
+    //[[NSFileManager defaultManager] removeItemAtPath:traitsOrderPath error:nil];
+    self.traitsOrder = [NSDictionary dictionaryWithContentsOfFile:traitsOrderPath];
+    // If it is the first time, create an alphabetical order with all active
+    if ([traitsOrder count] == 0) {
+        self.traitsOrder = [[NSMutableDictionary alloc] init];
+        for (NSString *trait in [traits allKeys]) {
+            NSMutableDictionary *tempDict = [[NSMutableDictionary alloc] init];
+            [tempDict setValue:[[traits valueForKey:trait] valueForKey:@"keyIndex"] forKey:@"index"];
+            [tempDict setValue:[NSNumber numberWithInt:1] forKey:@"active"];
+            [traitsOrder setValue:tempDict forKey:trait];
+        }
+        [traitsOrder writeToFile:traitsOrderPath atomically:YES];
+    }
+    
+    // Bring in all the entries
+    self.entriesPath = [documentsDir stringByAppendingPathComponent: @"entries.plist"];
+    // Erase all entries
+    //[[NSFileManager defaultManager] removeItemAtPath:entriesPath error:nil];
+    if (![[NSFileManager defaultManager] fileExistsAtPath:entriesPath]){
+        NSDictionary *dic = [[NSDictionary alloc] init];
+        [dic writeToFile:entriesPath atomically:YES];
+    }
+    self.allEntries = [[NSMutableDictionary alloc] initWithContentsOfFile:entriesPath];
+    // Set up an empty dictionary if this is the first time the app is loaded
+/*    if ([self.allEntries count] == 0) {
+        self.allEntries = [[NSMutableDictionary alloc] init];
+        for (id trait in self.traits){
+            [self.allEntries setValue:[[NSMutableDictionary alloc]init] forKey:trait];
+        }
+        [self writeEntriesFile];
+    } */
+    
+    if(![self.allEntries objectForKey:dateKey]){
+        [self.allEntries setObject:[[NSMutableDictionary alloc] init] forKey:dateKey];
+    }
+    self.todaysEntries = [[NSMutableDictionary alloc] initWithDictionary:[self.allEntries objectForKey:dateKey]];
+    
+    
+    // Print today's entries
+  /*  for (id entry in allEntries){
+        NSDictionary *e = [allEntries objectForKey:entry];
+        if ([e objectForKey:dateKey]) {
+            NSLog(@"%@ %@",entry,[[e objectForKey:dateKey] description]);            
+        }
+        
+    }*/
+    
+    // Initialize variables
+    self.currentTrait = [[Trait alloc] init];
+    
+    
+    return YES;
+}
+
+
+
 
 -(BOOL) writeEntriesFile{
     if ([self.allEntries writeToFile:entriesPath atomically:YES] == YES){
@@ -37,57 +113,6 @@
     }
 }
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
-    // Override point for customization after application launch.
-    // Set the date
-    NSDateFormatter *dayFormat = [[NSDateFormatter alloc] init];
-    // [dayFormat setDateFormat:@"MMM dd, yyyy"];
-    [dayFormat setDateFormat:@"MMddyyyy"];
-    dateKey = [dayFormat stringFromDate:[NSDate date]];
-    
-    // Bring in all the traits
-    self.traits = [[[NSMutableDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"traits" ofType:@"plist"]] objectForKey:@"traits"];
-    
-    
-    // Bring in the trait order
-    NSArray *documentPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDir = [documentPaths objectAtIndex:0];
-    self.traitsOrderPath = [documentsDir stringByAppendingPathComponent: @"traitsOrder.plist"];
-    //[[NSFileManager defaultManager] removeItemAtPath:traitsOrderPath error:nil];
-    self.traitsOrder = [NSDictionary dictionaryWithContentsOfFile:traitsOrderPath];
-    // If it is the first time, create an alphabetical order with all active
-    if ([traitsOrder count] == 0) {
-        self.traitsOrder = [[NSMutableDictionary alloc] init];
-        for (NSString *trait in [traits allKeys]) {
-            NSMutableDictionary *tempDict = [[NSMutableDictionary alloc] init];
-            [tempDict setValue:[[traits valueForKey:trait] valueForKey:@"keyIndex"] forKey:@"index"];
-            [tempDict setValue:[NSNumber numberWithInt:1] forKey:@"active"];
-            [traitsOrder setValue:tempDict forKey:trait];
-        }
-        [traitsOrder writeToFile:traitsOrderPath atomically:YES];
-    }
-    
-    // Bring in all the entries
-    self.entriesPath = [documentsDir stringByAppendingPathComponent: @"entries.plist"];
-    //[[NSFileManager defaultManager] removeItemAtPath:entriesPath error:nil];
-    self.allEntries = [[NSMutableDictionary alloc] initWithContentsOfFile:entriesPath];
-    
-    // Set up an empty dictionary if this is the first time the app is loaded
-    if ([self.allEntries count] == 0) {
-        self.allEntries = [[NSMutableDictionary alloc] init];
-        for (id trait in self.traits){
-            [self.allEntries setValue:[[NSMutableDictionary alloc]init] forKey:trait];
-        }
-        [self writeEntriesFile];
-    }
-        
-    // Initialize variables
-    self.currentTrait = [[Trait alloc] init];
-     
-    
-    return YES;
-}
 
 - (BOOL) saveCurrentEntry{
     // This method is called when done is clicked on RatingViewController, the trait being worked on at the time is saved into the database for the current date, overwriting existing entries if necessary
@@ -105,7 +130,8 @@
     
     // Add it to the dictionary at the name of the trait at todays date overwriting existing entries
     NSString *currentTraitName = [self.currentTrait valueForKey:@"name"];
-    [[allEntries objectForKey:currentTraitName] setObject:data forKey:dateKey];
+    [self.todaysEntries setObject:data forKey:currentTraitName];
+    [self.allEntries setObject:todaysEntries forKey:self.dateKey];
     
     return YES;
 }

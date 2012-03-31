@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import <sqlite3.h>
+#define kDbDateFormat @"MMddyyyy"
+#define kStringDateFormat @"MMM dd yyyy"
 
 @class Trait;
 @class Entry;
@@ -19,7 +21,8 @@
 @property (nonatomic, retain) Trait *currentTrait;
 // switch notes tracking into current entry
 @property (nonatomic, retain) Entry *currentEntry;
-@property (nonatomic, retain) NSMutableDictionary *allEntries;
+@property (nonatomic, retain) NSMutableDictionary *allEntries, *todaysEntries;
+@property (nonatomic, retain) NSDateFormatter *dbDateFormatter, *stringDateFormatter;
 
 - (BOOL) saveCurrentEntry;
 -(BOOL) writeEntriesFile;
