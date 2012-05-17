@@ -35,7 +35,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     [textView becomeFirstResponder];
-    AppDelegate *myApp = [[UIApplication sharedApplication] delegate];
+    AppDelegate *myApp = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     Entry *currentEntry = [myApp currentEntry];
     if ([currentEntry valueForKey:@"notes"]) {
         self.textView.text = [currentEntry valueForKey:@"notes"];
@@ -49,7 +49,7 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if([sender tag] == 1){
-        AppDelegate *myApp = [[UIApplication sharedApplication] delegate];        
+        AppDelegate *myApp = (AppDelegate *)[[UIApplication sharedApplication] delegate];        
         [[myApp currentEntry] setValue:self.textView.text forKey:@"notes"];
     }
 }

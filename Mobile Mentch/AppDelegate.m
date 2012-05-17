@@ -11,11 +11,25 @@
 #import "Entry.h"
 @implementation AppDelegate
 
-@synthesize window = _window, traits, traitsOrder, traitsOrderPath, allEntries, todaysEntries, entriesPath, currentTrait, currentEntry, dateKey, dbDateFormatter, stringDateFormatter;
+@synthesize window = _window, traits, traitsOrder, traitsOrderPath, allEntries, todaysEntries, entriesPath, currentTrait, currentEntry, dateKey, dbDateFormatter, stringDateFormatter, facebook, userDictionary;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    // Set up Facebook
+   /* facebook = [[Facebook alloc] initWithAppId:@"126793304112432" andDelegate:self];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if ([defaults objectForKey:@"FBAccessTokenKey"] 
+        && [defaults objectForKey:@"FBExpirationDateKey"]) {
+        facebook.accessToken = [defaults objectForKey:@"FBAccessTokenKey"];
+        facebook.expirationDate = [defaults objectForKey:@"FBExpirationDateKey"];
+    }
+    NSArray *permissions = [[NSArray alloc] initWithObjects:@"email", nil];
+    [facebook authorize:permissions];
+    if (![facebook isSessionValid]) {
+        [facebook authorize:nil];
+    }*/
+
     // Set the date
     self.stringDateFormatter = [[NSDateFormatter alloc] init];
     self.dbDateFormatter = [[NSDateFormatter alloc] init];
@@ -86,10 +100,55 @@
     return YES;
 }
 
+#pragma mark Facebook Methods
+// Facebook Pre iOS 4.2 support
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
+    return [facebook handleOpenURL:url]; 
+}
+
+// Facebook For iOS 4.2+ support
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    return [facebook handleOpenURL:url]; 
+}
+
+// Facebook
+- (void)fbDidLogin {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:[facebook accessToken] forKey:@"FBAccessTokenKey"];
+    [defaults setObject:[facebook expirationDate] forKey:@"FBExpirationDateKey"];
+    [defaults synchronize];
+    [self apiFQLIMe];
+    
+}
+
+- (void)apiFQLIMe {
+    // Using the "pic" picture since this currently has a maximum width of 100 pixels
+    // and since the minimum profile picture size is 180 pixels wide we should be able
+    // to get a 100 pixel wide version of the profile picture
+    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                                   @"SELECT email, uid, name, pic FROM user WHERE uid=me()", @"query",
+                                   nil];
+    AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    [[delegate facebook] requestWithMethodName:@"fql.query"
+                                     andParams:params
+                                 andHttpMethod:@"POST"
+                                   andDelegate:self];
+}
 
 
+- (void)request:(FBRequest *)request didLoad:(id)result {
+    if ([result isKindOfClass:[NSArray class]]) {
+        result = [result objectAtIndex:0];
+        self.userDictionary = result;
+    }
+}
+
+#pragma mark Persistance Methods
 
 -(BOOL) writeEntriesFile{
+    // Add today's entries to all entries
+    [self.allEntries setObject:todaysEntries forKey:dateKey];
     if ([self.allEntries writeToFile:entriesPath atomically:YES] == YES){
         NSLog(@"YES Written");
         return YES;

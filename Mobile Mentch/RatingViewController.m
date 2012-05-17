@@ -99,9 +99,10 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    myApp = [[UIApplication sharedApplication] delegate];
+    myApp = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     Trait *currentTrait = [myApp currentTrait];
     Entry *currentEntry = [myApp currentEntry];
+    
     [navBarTitle setTitle:[currentTrait valueForKey:@"name"]];
     if ([[currentTrait valueForKey:@"icon"] isEqualToString:@""]){
         [traitImage setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@.png", [currentTrait valueForKey:@"name"]]]];

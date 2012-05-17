@@ -19,6 +19,7 @@
 		492F6EB815228292007B73C9 /* VisualizeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 492F6EB715228292007B73C9 /* VisualizeViewController.m */; };
 		49347F8E151FBA7500EB705B /* apprentice.png in Resources */ = {isa = PBXBuildFile; fileRef = 49347F8D151FBA7500EB705B /* apprentice.png */; };
 		496E5E40151D93F60041123E /* NoteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 496E5E3F151D93F60041123E /* NoteViewController.m */; };
+		49B2468815659FEC00F6CAFA /* VisualizeInnerTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B2468715659FEC00F6CAFA /* VisualizeInnerTableViewController.m */; };
 		49C28FBC151965B400AD1396 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49C28FBB151965B400AD1396 /* UIKit.framework */; };
 		49C28FBE151965B400AD1396 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49C28FBD151965B400AD1396 /* Foundation.framework */; };
 		49C28FC0151965B400AD1396 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49C28FBF151965B400AD1396 /* CoreGraphics.framework */; };
@@ -84,6 +85,8 @@
 		49347F8D151FBA7500EB705B /* apprentice.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = apprentice.png; sourceTree = "<group>"; };
 		496E5E3E151D93F60041123E /* NoteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteViewController.h; sourceTree = "<group>"; };
 		496E5E3F151D93F60041123E /* NoteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteViewController.m; sourceTree = "<group>"; };
+		49B2468615659FEC00F6CAFA /* VisualizeInnerTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VisualizeInnerTableViewController.h; sourceTree = "<group>"; };
+		49B2468715659FEC00F6CAFA /* VisualizeInnerTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VisualizeInnerTableViewController.m; sourceTree = "<group>"; };
 		49C28FB7151965B400AD1396 /* Mobile Mentch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mobile Mentch.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		49C28FBB151965B400AD1396 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		49C28FBD151965B400AD1396 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -271,6 +274,8 @@
 				491D1DEE151D3697001F11AC /* LoginViewController.m */,
 				492F6EB615228292007B73C9 /* VisualizeViewController.h */,
 				492F6EB715228292007B73C9 /* VisualizeViewController.m */,
+				49B2468615659FEC00F6CAFA /* VisualizeInnerTableViewController.h */,
+				49B2468715659FEC00F6CAFA /* VisualizeInnerTableViewController.m */,
 			);
 			path = "Mobile Mentch";
 			sourceTree = "<group>";
@@ -411,6 +416,7 @@
 				491D1DEF151D3697001F11AC /* LoginViewController.m in Sources */,
 				496E5E40151D93F60041123E /* NoteViewController.m in Sources */,
 				492F6EB815228292007B73C9 /* VisualizeViewController.m in Sources */,
+				49B2468815659FEC00F6CAFA /* VisualizeInnerTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

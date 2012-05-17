@@ -97,7 +97,7 @@
     // Get today's entry for the trait selected
     NSString *traitName = [[[self.tableView cellForRowAtIndexPath:indexPath] textLabel] text];
     myApp.currentTrait = [myApp.traits valueForKey:traitName];
-    myApp.currentEntry = [[myApp.allEntries valueForKey:traitName] valueForKey:[myApp dateKey]];
+    myApp.currentEntry = [myApp.todaysEntries valueForKey:traitName];
     if (!myApp.currentEntry) {
         myApp.currentEntry = [[Entry alloc] init];
     }
@@ -168,7 +168,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    self.myApp = [[UIApplication sharedApplication] delegate];
+    self.myApp = (AppDelegate *)[[UIApplication sharedApplication] delegate];
 }
 
 - (void)viewDidUnload

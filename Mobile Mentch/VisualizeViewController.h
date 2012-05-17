@@ -12,7 +12,6 @@
 @property (weak, nonatomic) IBOutlet UISegmentedControl *FromUntilDateSegments;
 @property (nonatomic,retain) NSDateFormatter *dateFormat;
 
-
 @property (strong, nonatomic) IBOutlet UIDatePicker *datePicker;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *homeButton;
 @property (weak, nonatomic) IBOutlet UINavigationBar *navBar;
@@ -20,6 +19,7 @@
 
 
 - (IBAction)datePicker:(id)sender;
+-(IBAction)visualizeButton:(id)sender;
 - (void)saveButton:(id)sender;
 -(NSArray *)dateArrayFrom:(NSDate *)startDate to:(NSDate *)endDate;
 

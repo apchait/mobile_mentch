@@ -7,13 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FBConnect.h"
 #import <sqlite3.h>
 #define kDbDateFormat @"MMddyyyy"
 #define kStringDateFormat @"MMM dd yyyy"
 
 @class Trait;
 @class Entry;
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate, FBSessionDelegate, FBRequestDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 @property (nonatomic, copy) NSString *traitsOrderPath, *entriesPath, *dateKey;
@@ -23,8 +24,10 @@
 @property (nonatomic, retain) Entry *currentEntry;
 @property (nonatomic, retain) NSMutableDictionary *allEntries, *todaysEntries;
 @property (nonatomic, retain) NSDateFormatter *dbDateFormatter, *stringDateFormatter;
+@property (nonatomic, retain) Facebook *facebook;
+@property (nonatomic, retain) NSDictionary *userDictionary;
 
-- (BOOL) saveCurrentEntry;
+-(BOOL) saveCurrentEntry;
 -(BOOL) writeEntriesFile;
 -(BOOL) writeTraitsOrderFile;
 @end

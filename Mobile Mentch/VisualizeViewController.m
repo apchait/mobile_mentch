@@ -68,42 +68,56 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
--(void)visualizeButton:(id)sender{
+-(IBAction)visualizeButton:(id)sender{
     // print out all traits in array from start to end
-    NSArray *ar = [[NSArray alloc] initWithObjects:@"Confidence",@"Approval",@"Attentiveness", nil];
-    NSDateFormatter *dbDateFormat = [[NSDateFormatter alloc] init];
-    [dbDateFormat setDateFormat:kDbDateFormat];
-    NSString *startDate = [dbDateFormat stringFromDate:[self.dateFormat dateFromString: [FromUntilDateSegments titleForSegmentAtIndex:0]]];
-    NSString *endDate= [dbDateFormat stringFromDate:[self.dateFormat dateFromString:[FromUntilDateSegments titleForSegmentAtIndex:1]]];
+ //   NSArray *ar = [[NSArray alloc] initWithObjects:@"Confidence",@"Approval",@"Attentiveness", nil];
+  //  NSDateFormatter *dbDateFormat = [[NSDateFormatter alloc] init];
+  //  [dbDateFormat setDateFormat:kDbDateFormat];
+   // NSString *startDate = [dbDateFormat stringFromDate:[self.dateFormat dateFromString: [FromUntilDateSegments titleForSegmentAtIndex:0]]];
+   // NSString *endDate= [dbDateFormat stringFromDate:[self.dateFormat dateFromString:[FromUntilDateSegments titleForSegmentAtIndex:1]]];
 
     [self dateArrayFrom:[self.dateFormat dateFromString: [FromUntilDateSegments titleForSegmentAtIndex:0]] to:[self.dateFormat dateFromString:[FromUntilDateSegments titleForSegmentAtIndex:1]]];
 }
 
 -(NSArray *)dateArrayFrom:(NSDate *)startDate to:(NSDate *)endDate{
     
-    AppDelegate *myApp = [[UIApplication sharedApplication] delegate];
+    AppDelegate *myApp = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     NSDateFormatter *df = [[NSDateFormatter alloc] init];
     [df setDateFormat:kDbDateFormat];
-    NSLog(@"%@",[[myApp allEntries] objectForKey:[df stringFromDate:endDate]]);
+    //NSLog(@"%@",[[myApp allEntries] objectForKey:[df stringFromDate:endDate]]);
     
     NSMutableArray *result = [[NSMutableArray alloc] init];
-    NSArray *traitsToVisualize = [[NSArray alloc] initWithObjects:@"Confidence",@"Approval",@"Attentiveness", nil];
+    NSArray *traitsToVisualize = [[NSArray alloc] initWithObjects:@"Contentment",@"Attentiveness", nil];
     
     NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
     NSDateComponents *comp = [[NSDateComponents alloc] init];
     [comp setDay: 1];
-    
+    // We will use idValue to keep track of the order of the dates in the dictionary
+    NSNumber *idValue = [NSNumber numberWithInt:0];
+    // Iterate through the date range, incrementing startDate everytime until it matches endDate
     while ([[df stringFromDate:startDate] intValue] <= [[df stringFromDate:endDate] intValue]){
-        // Add items here
-        NSMutableDictionary *objectToAdd = [NSMutableDictionary dictionaryWithObjects:[NSArray arrayWithObjects:[self.dateFormat stringFromDate:startDate], [[NSMutableDictionary alloc] init], nil] forKeys:[NSArray arrayWithObjects: @"date", @"traits", nil]];
+        // Set up a dictionary that with a date key and trait key, date points to string date and traits points to dictionary with trait names as keys and values of a dictionary with keys notes and ratings pointing to any notes and the rating
+        NSMutableDictionary *currentDateObject = [NSMutableDictionary dictionaryWithObjects:[NSArray arrayWithObjects:idValue, [self.dateFormat stringFromDate:startDate], [[NSMutableDictionary alloc] init], nil] forKeys:[NSArray arrayWithObjects: @"id",@"date", @"traits", nil]];
+
+        // Current date has all the entries for the date we are iterating over
+        NSDictionary *currentDate = [[myApp allEntries] objectForKey:[df stringFromDate:startDate]];
+        // For every trait we'd like to visualize
         for (id trait in traitsToVisualize) {
-            [[objectToAdd objectForKey:@"traits"] setObject:[NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:[NSNumber numberWithInt:3], @"Notes Here", nil] forKeys:[NSArray arrayWithObjects:@"rating", @"notes",nil ]] forKey:trait];
+            // Pick out that trait from the day's entries
+            NSDictionary *currentTrait = [currentDate objectForKey:trait];
+            // Add it the currentDateObject
+            if (currentTrait) {
+                [[currentDateObject objectForKey:@"traits"] setObject:currentTrait forKey:trait];
+            }
         }
-        [result addObject:objectToAdd];
+        // Once we are done getting the entries for the traits we want to visualize, add it to the results and increment the date
+        [result addObject:currentDateObject];
         startDate = [gregorian dateByAddingComponents:comp toDate:startDate options:0];
+        // Increment idValue to help keep track of the order
+        idValue = [NSNumber numberWithInt:[idValue intValue] + 1];
     }
 
-    NSLog(@"%@", [result description]);
+    // Result has the information needed to create the chart
     return result;
 }
 
@@ -118,7 +132,7 @@
     
 }
 
-- (IBAction)datePicker:(id)sender{
+- (void)datePicker:(id)sender{
     self.activeSegment = [NSNumber numberWithInt:[sender selectedSegmentIndex]];
 
     NSString *dateString = [dateFormat stringFromDate:[NSDate date]];
