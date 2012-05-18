@@ -69,14 +69,8 @@
 }
 
 -(IBAction)visualizeButton:(id)sender{
-    // print out all traits in array from start to end
- //   NSArray *ar = [[NSArray alloc] initWithObjects:@"Confidence",@"Approval",@"Attentiveness", nil];
-  //  NSDateFormatter *dbDateFormat = [[NSDateFormatter alloc] init];
-  //  [dbDateFormat setDateFormat:kDbDateFormat];
-   // NSString *startDate = [dbDateFormat stringFromDate:[self.dateFormat dateFromString: [FromUntilDateSegments titleForSegmentAtIndex:0]]];
-   // NSString *endDate= [dbDateFormat stringFromDate:[self.dateFormat dateFromString:[FromUntilDateSegments titleForSegmentAtIndex:1]]];
-
-    [self dateArrayFrom:[self.dateFormat dateFromString: [FromUntilDateSegments titleForSegmentAtIndex:0]] to:[self.dateFormat dateFromString:[FromUntilDateSegments titleForSegmentAtIndex:1]]];
+    NSDictionary *dataToVisualize = [self dateArrayFrom:[self.dateFormat dateFromString: [FromUntilDateSegments titleForSegmentAtIndex:0]] to:[self.dateFormat dateFromString:[FromUntilDateSegments titleForSegmentAtIndex:1]]];
+    NSLog(@"%@", [dataToVisualize description]);
 }
 
 -(NSArray *)dateArrayFrom:(NSDate *)startDate to:(NSDate *)endDate{
@@ -84,14 +78,17 @@
     AppDelegate *myApp = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     NSDateFormatter *df = [[NSDateFormatter alloc] init];
     [df setDateFormat:kDbDateFormat];
-    //NSLog(@"%@",[[myApp allEntries] objectForKey:[df stringFromDate:endDate]]);
-    
+
+    // Result will store the information needed to create the graph
     NSMutableArray *result = [[NSMutableArray alloc] init];
-    NSArray *traitsToVisualize = [[NSArray alloc] initWithObjects:@"Contentment",@"Attentiveness", nil];
-    
+    // Find out which traits were picked to be visualized
+//    NSArray *traitsToVisualize = [[NSArray alloc] initWithObjects:@"Contentment",@"Attentiveness", nil];
+    NSArray *traitsToVisualize = [self selectedTraits];
+    // Set up a "calendar" to be able to iterate through the range of dates
     NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
     NSDateComponents *comp = [[NSDateComponents alloc] init];
     [comp setDay: 1];
+    
     // We will use idValue to keep track of the order of the dates in the dictionary
     NSNumber *idValue = [NSNumber numberWithInt:0];
     // Iterate through the date range, incrementing startDate everytime until it matches endDate
@@ -121,29 +118,31 @@
     return result;
 }
 
+-(NSArray *)selectedTraits{
+    // Returns an array of the the traits that have been selected to be visualized
+    return [[NSArray alloc] initWithObjects:@"Contentment",@"Attentiveness", nil];
+}
+
 -(void)saveButton:(id)sender{
-    NSLog(@"Done Picking Date!");
-    NSLog(@"%@", [self.datePicker.date description]);
+    // This closes the date picker and updates the UI to reflect which date was picked
     NSString *dateString = [self.dateFormat stringFromDate:self.datePicker.date];
     // set the date segement to the date in the picker
     [self.FromUntilDateSegments setTitle:dateString forSegmentAtIndex:[activeSegment intValue]];
     [self.datePicker setHidden:YES];
     [[self.navBar topItem] setRightBarButtonItem:[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemPlay target:self action:@selector(visualizeButton:)]];
-    
 }
 
 - (void)datePicker:(id)sender{
+    // This sets up the datePicker and shows it
     self.activeSegment = [NSNumber numberWithInt:[sender selectedSegmentIndex]];
 
-    NSString *dateString = [dateFormat stringFromDate:[NSDate date]];
+   // NSString *dateString = [dateFormat stringFromDate:[NSDate date]];
     [self.datePicker setDate:[self.dateFormat dateFromString:[self.FromUntilDateSegments titleForSegmentAtIndex:[activeSegment intValue]]]];
-    
-//    UINavigationBar *nav = 
+
+    // Change the play button to a done button to finish picking the date and call the saveButton method
     [[self.navBar topItem] setRightBarButtonItem:[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(saveButton:)]];
     
     [self.datePicker setHidden:NO];
-
-
 }
 
 
