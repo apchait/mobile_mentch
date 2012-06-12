@@ -11,7 +11,7 @@
 #import "Entry.h"
 @implementation AppDelegate
 
-@synthesize window = _window, traits, traitsOrder, traitsOrderPath, allEntries, todaysEntries, entriesPath, currentTrait, currentEntry, dateKey, dbDateFormatter, stringDateFormatter, facebook, userDictionary;
+@synthesize window = _window, traits, traitsPath, traitsOrder, traitsOrderPath, allEntries, todaysEntries, entriesPath, currentTrait, currentEntry, dateKey, dbDateFormatter, stringDateFormatter, facebook, userDictionary;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -37,13 +37,24 @@
     [dbDateFormatter setDateFormat:kDbDateFormat];
     dateKey = [dbDateFormatter stringFromDate:[NSDate date]];
     
+    NSArray *documentPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDir = [documentPaths objectAtIndex:0];
+    
     // Bring in all the traits
-    self.traits = [[[NSMutableDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"traits" ofType:@"plist"]] objectForKey:@"traits"];
+    self.traitsPath = [documentsDir stringByAppendingFormat:@"traits.plist"];
+    // If file exists bring it in from the doc directory
+    if ([[NSFileManager defaultManager] fileExistsAtPath:traitsPath]) {
+        self.traits = [[NSMutableDictionary alloc] initWithContentsOfFile:traitsPath];
+    }
+    else {
+        // Else bring it in from the bundle
+        self.traits = [[[NSMutableDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"traits" ofType:@"plist"]] objectForKey:@"traits"];
+    }
+    
     
     
     // Bring in the trait order
-    NSArray *documentPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDir = [documentPaths objectAtIndex:0];
+    
     //self.traitsOrderPath = [documentsDir stringByAppendingPathComponent: @"traitsOrder.plist"];
     // Erase traits order
     [[NSFileManager defaultManager] removeItemAtPath:traitsOrderPath error:nil];
@@ -156,6 +167,19 @@
     else {
         // raise alert
         NSLog(@"NOT Written");
+        return NO;
+    }
+    
+    
+}
+
+-(BOOL) writeTraitsFile {
+    if ([self.traits writeToFile:traitsPath atomically:YES]){
+        NSLog(@"Traits written to file");
+        return YES;
+    }
+    else {
+        NSLog(@"Traits not written to file");
         return NO;
     }
 }

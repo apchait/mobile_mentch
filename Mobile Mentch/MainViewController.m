@@ -68,16 +68,7 @@
         // The Active List
         NSUInteger row = [indexPath row];
         // Get the trait list that was loaded in the App Delegate and set up the table view cells
-        NSDictionary *traits = [[NSDictionary alloc] initWithDictionary:[myApp traits]];
-        NSDictionary *currentTrait;
-        
-        // Use the traitOrder to set up
-        for (NSString *trait in activeTraits) {
-           // if([[[[myApp traitsOrder] valueForKey:trait] valueForKey:@"index"] intValue] == row){
-            if([[[traits objectForKey:trait] valueForKey:@"keyIndex"] intValue] == row){
-                currentTrait = [traits objectForKey:trait];
-            }
-        }
+        NSDictionary *currentTrait = [[myApp traits] objectForKey:[activeTraits objectAtIndex:row]];
         
         cell.textLabel.text = [currentTrait objectForKey:@"name"];
         cell.detailTextLabel.text = [currentTrait objectForKey:@"description"];
@@ -93,24 +84,13 @@
         if ([[[myApp todaysEntries] objectForKey:cell.textLabel.text] valueForKey:@"rating"] != 0){
             cell.accessoryType = UITableViewCellAccessoryCheckmark;
         }
-        /*
-        if([[[myApp allEntries] objectForKey:cell.textLabel.text] valueForKey:[myApp dateKey]] && [[[[[myApp allEntries] objectForKey:cell.textLabel.text] valueForKey:[myApp dateKey]] valueForKey:@"rating"] intValue] != 0){
-            NSLog(@"%@",cell.textLabel.text);
-
-        }*/
+      
     }
     else {
         // the nonActive list
         NSUInteger row = [indexPath row];
-        NSDictionary *traits = [[NSDictionary alloc] initWithDictionary:[myApp traits]];
-        NSDictionary *currentTrait;
+        NSDictionary *currentTrait = [[myApp traits] objectForKey:[nonActiveTraits objectAtIndex:row]];
         
-        // Use the traitOrder to set up
-        for (NSString *trait in nonActiveTraits) {
-            if([[[traits objectForKey:trait] valueForKey:@"keyIndex"] intValue] == row){
-                currentTrait = [traits objectForKey:trait];
-            }
-        }
         cell.textLabel.text = [currentTrait objectForKey:@"name"];
         cell.detailTextLabel.text = [currentTrait objectForKey:@"description"];
         // Some cells need special icon names to deal with a / or : in the filename
@@ -181,37 +161,41 @@
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    // Get the trait being added
+    NSString *trait = [[[tableView cellForRowAtIndexPath:indexPath] textLabel] text];
+    
     if (editingStyle == UITableViewCellEditingStyleDelete)
     {
-        // Delete the row from currentList and move to nonCurrentList
-       // id object = [self.currentList objectAtIndex:[indexPath row]];
-       // [self.currentList removeObjectAtIndex:[indexPath row]];
-        
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-        //[self.nonCurrentList addObject:object];
-        
-        // Sort non current list and get index to put the deleted trait back into the list alphabetically
-       // NSArray *sorted = [[NSArray alloc] initWithArray:[nonCurrentList sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)]];
-       // self.nonCurrentList = [[NSMutableArray alloc] initWithArray:sorted];
-       // [sorted release];
-       // NSUInteger index = [nonCurrentList indexOfObject:object];
-        [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:index inSection:1]] withRowAnimation:UITableViewRowAnimationFade];
+        // Take it out of active
+        [activeTraits removeObject:trait];
+        // Delete it from the nonActive table
+        [self.tableView deleteRowsAtIndexPaths: [NSArray arrayWithObject:indexPath] withRowAnimation: UITableViewRowAnimationFade];
+        // Change its status to active in the traits file
+        [[[myApp traits] objectForKey:trait] setValue:[NSNumber numberWithInt:0] forKey:@"active"];
+        // Add it to the nonActiveList
+        [nonActiveTraits addObject:trait];
+        // Sort the nonActiveList alphabetically
+        nonActiveTraits = [NSMutableArray arrayWithArray:[nonActiveTraits sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)]];
+        // Insert it into the nonActive table at its index of the alphabetical nonActiveList
+        [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:[self.nonActiveTraits indexOfObject:trait] inSection:2]]  withRowAnimation:UITableViewRowAnimationFade];         
     }
     else if (editingStyle == UITableViewCellEditingStyleInsert)
     {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
-        // Move the item from the non current list to the current list
-       // id object = [self.nonCurrentList objectAtIndex:[indexPath row]];
-       // [self.nonCurrentList removeObjectAtIndex:[indexPath	row]];
-       // NSLog(@"%@", [nonActiveTraits removeObjectForKey:[[[tableView cellForRowAtIndexPath:indexPath] textLabel] text]]);
-        NSString *trait = [[[tableView cellForRowAtIndexPath:indexPath] textLabel] text];
-        [nonActiveTraits removeObjectForKey: trait];
-        [[[myApp traits] objectForKey:trait] setValue:[NSNumber numberWithInt:1] forKey:@"active"];
+        // Take it out of nonactive
+        [nonActiveTraits removeObject:trait];
+        // Delete it from the nonActive table
         [self.tableView deleteRowsAtIndexPaths: [NSArray arrayWithObject:indexPath] withRowAnimation: UITableViewRowAnimationFade];
-        //[[[myApp traits] objectForKey:trait] setValue:[NSNumber numberWithInt:[self.activeTraits count] -1] forKey:@"keyIndex"];
-        [activeTraits setObject:[[myApp traits] objectForKey:trait] forKey:trait];
-        [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:[self.activeTraits count] -1 inSection:1]]  withRowAnimation:UITableViewRowAnimationFade];         
-    }   
+        // Change its status to active in the traits file
+        [[[myApp traits] objectForKey:trait] setValue:[NSNumber numberWithInt:1] forKey:@"active"];
+        // Add it to the activeList
+        [activeTraits addObject:trait];
+        // Sort the activeList alphabetically
+        activeTraits = [NSMutableArray arrayWithArray:[activeTraits sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)]];
+        // Insert it into the active table at its index of the alphabetical activeList
+        [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:[self.activeTraits indexOfObject:trait] inSection:1]]  withRowAnimation:UITableViewRowAnimationFade];         
+    }
+    // Save the changes to the traits
+    [myApp writeTraitsFile];
 }
 
 
@@ -262,19 +246,22 @@
 	// Do any additional setup after loading the view, typically from a nib.
     self.myApp = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     
-    self.activeTraits = [[NSMutableDictionary alloc] init];
-    self.nonActiveTraits = [[NSMutableDictionary alloc] init];
+    self.activeTraits = [[NSMutableArray alloc] init];
+    self.nonActiveTraits = [[NSMutableArray alloc] init];
     
     // Set up the active and non active traits lists
     // Each trait dictionary has an active key pointing to a value of 1 or 0
     for (NSDictionary *trait in [myApp traits]){
         if ([[[[myApp traits] objectForKey:trait] valueForKey:@"active"] intValue] == 1) {
-            [activeTraits setObject:[[myApp traits] objectForKey:trait] forKey:trait];
+            [activeTraits addObject:[NSString stringWithFormat:@"%@", trait]];
         }
         else {
-            [nonActiveTraits setObject:[[myApp traits] objectForKey:trait] forKey:trait];
+            [nonActiveTraits addObject:[NSString stringWithFormat:@"%@", trait]];
         }
     }
+    
+    activeTraits = [NSMutableArray arrayWithArray:[activeTraits sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)]];
+    nonActiveTraits = [NSMutableArray arrayWithArray:[nonActiveTraits sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)]];
     if ([activeTraits count] == 0) {
         [self showAddTraitsOverlay];
     }

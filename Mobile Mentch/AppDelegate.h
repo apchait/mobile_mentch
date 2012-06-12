@@ -17,7 +17,7 @@
 @interface AppDelegate : UIResponder <UIApplicationDelegate, FBSessionDelegate, FBRequestDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-@property (nonatomic, copy) NSString *traitsOrderPath, *entriesPath, *dateKey;
+@property (nonatomic, copy) NSString *traitsPath, *traitsOrderPath, *entriesPath, *dateKey;
 @property (nonatomic, retain) NSMutableDictionary *traits, *traitsOrder;
 @property (nonatomic, retain) Trait *currentTrait;
 // switch notes tracking into current entry
@@ -30,4 +30,5 @@
 -(BOOL) saveCurrentEntry;
 -(BOOL) writeEntriesFile;
 -(BOOL) writeTraitsOrderFile;
+-(BOOL) writeTraitsFile;
 @end
