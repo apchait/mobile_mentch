@@ -36,6 +36,7 @@
     [stringDateFormatter setDateFormat:kStringDateFormat];
     [dbDateFormatter setDateFormat:kDbDateFormat];
     dateKey = [dbDateFormatter stringFromDate:[NSDate date]];
+
     
     NSArray *documentPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDir = [documentPaths objectAtIndex:0];
