@@ -44,9 +44,9 @@
     // Bring in the trait order
     NSArray *documentPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDir = [documentPaths objectAtIndex:0];
-    self.traitsOrderPath = [documentsDir stringByAppendingPathComponent: @"traitsOrder.plist"];
+    //self.traitsOrderPath = [documentsDir stringByAppendingPathComponent: @"traitsOrder.plist"];
     // Erase traits order
-    //[[NSFileManager defaultManager] removeItemAtPath:traitsOrderPath error:nil];
+    [[NSFileManager defaultManager] removeItemAtPath:traitsOrderPath error:nil];
     self.traitsOrder = [NSDictionary dictionaryWithContentsOfFile:traitsOrderPath];
     // If it is the first time, create an alphabetical order with all active
     if ([traitsOrder count] == 0) {
@@ -54,7 +54,7 @@
         for (NSString *trait in [traits allKeys]) {
             NSMutableDictionary *tempDict = [[NSMutableDictionary alloc] init];
             [tempDict setValue:[[traits valueForKey:trait] valueForKey:@"keyIndex"] forKey:@"index"];
-            [tempDict setValue:[NSNumber numberWithInt:1] forKey:@"active"];
+            [tempDict setValue:[NSNumber numberWithInt:0] forKey:@"active"];
             [traitsOrder setValue:tempDict forKey:trait];
         }
         [traitsOrder writeToFile:traitsOrderPath atomically:YES];

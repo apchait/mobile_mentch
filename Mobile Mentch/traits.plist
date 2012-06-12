@@ -6,7 +6,9 @@
 	<dict>
 		<key>Stress Management</key>
 		<dict>
-			<key>keyIndex</key>
+			<key>active</key>
+<integer>0</integer>
+<key>keyIndex</key>
 			<integer>17</integer>
 			<key>icon</key>
 			<string></string>
@@ -19,7 +21,9 @@
 		</dict>
 		<key>Worry</key>
 		<dict>
-			<key>keyIndex</key>
+			<key>active</key>
+<integer>0</integer>
+<key>keyIndex</key>
 			<integer>19</integer>
 			<key>icon</key>
 			<string></string>
@@ -32,7 +36,9 @@
 		</dict>
 		<key>Approval</key>
 		<dict>
-			<key>keyIndex</key>
+			<key>active</key>
+<integer>0</integer>
+<key>keyIndex</key>
 			<integer>0</integer>
 			<key>icon</key>
 			<string></string>
@@ -45,7 +51,9 @@
 		</dict>
 		<key>Attentiveness</key>
 		<dict>
-			<key>keyIndex</key>
+			<key>active</key>
+<integer>0</integer>
+<key>keyIndex</key>
 			<integer>1</integer>
 			<key>icon</key>
 			<string></string>
@@ -58,7 +66,9 @@
 		</dict>
 		<key>Communication</key>
 		<dict>
-			<key>keyIndex</key>
+			<key>active</key>
+<integer>0</integer>
+<key>keyIndex</key>
 			<integer>2</integer>
 			<key>icon</key>
 			<string></string>
@@ -71,7 +81,9 @@
 		</dict>
 		<key>Confidence</key>
 		<dict>
-			<key>keyIndex</key>
+			<key>active</key>
+<integer>0</integer>
+<key>keyIndex</key>
 			<integer>3</integer>
 			<key>icon</key>
 			<string></string>
@@ -84,7 +96,9 @@
 		</dict>
 		<key>Contentment</key>
 		<dict>
-			<key>keyIndex</key>
+			<key>active</key>
+<integer>0</integer>
+<key>keyIndex</key>
 			<integer>4</integer>
 			<key>icon</key>
 			<string></string>
@@ -97,7 +111,9 @@
 		</dict>
 		<key>Forgiveness</key>
 		<dict>
-			<key>keyIndex</key>
+			<key>active</key>
+<integer>0</integer>
+<key>keyIndex</key>
 			<integer>5</integer>
 			<key>icon</key>
 			<string></string>
@@ -110,7 +126,9 @@
 		</dict>
 		<key>Happiness</key>
 		<dict>
-			<key>keyIndex</key>
+			<key>active</key>
+<integer>0</integer>
+<key>keyIndex</key>
 			<integer>6</integer>
 			<key>icon</key>
 			<string></string>
@@ -123,7 +141,9 @@
 		</dict>
 		<key>Health/Excercise</key>
 		<dict>
-			<key>keyIndex</key>
+			<key>active</key>
+<integer>0</integer>
+<key>keyIndex</key>
 			<integer>7</integer>
 			<key>icon</key>
 			<string>Health:Excercise</string>
@@ -136,7 +156,9 @@
 		</dict>
 		<key>Healthy Eating</key>
 		<dict>
-			<key>keyIndex</key>
+			<key>active</key>
+<integer>0</integer>
+<key>keyIndex</key>
 			<integer>8</integer>
 			<key>icon</key>
 			<string></string>
@@ -149,7 +171,9 @@
 		</dict>
 		<key>Honesty</key>
 		<dict>
-			<key>keyIndex</key>
+			<key>active</key>
+<integer>0</integer>
+<key>keyIndex</key>
 			<integer>9</integer>
 			<key>icon</key>
 			<string></string>
@@ -162,7 +186,9 @@
 		</dict>
 		<key>Kindness</key>
 		<dict>
-			<key>keyIndex</key>
+			<key>active</key>
+<integer>0</integer>
+<key>keyIndex</key>
 			<integer>10</integer>
 			<key>icon</key>
 			<string></string>
@@ -175,7 +201,9 @@
 		</dict>
 		<key>Laziness</key>
 		<dict>
-			<key>keyIndex</key>
+			<key>active</key>
+<integer>0</integer>
+<key>keyIndex</key>
 			<integer>11</integer>
 			<key>icon</key>
 			<string></string>
@@ -188,7 +216,9 @@
 		</dict>
 		<key>Open Mindedness</key>
 		<dict>
-			<key>keyIndex</key>
+			<key>active</key>
+<integer>0</integer>
+<key>keyIndex</key>
 			<integer>12</integer>
 			<key>icon</key>
 			<string></string>
@@ -201,7 +231,9 @@
 		</dict>
 		<key>Patience</key>
 		<dict>
-			<key>keyIndex</key>
+			<key>active</key>
+<integer>0</integer>
+<key>keyIndex</key>
 			<integer>13</integer>
 			<key>icon</key>
 			<string></string>
@@ -214,7 +246,9 @@
 		</dict>
 		<key>Positivity/Negativity</key>
 		<dict>
-			<key>keyIndex</key>
+			<key>active</key>
+<integer>0</integer>
+<key>keyIndex</key>
 			<integer>14</integer>
 			<key>icon</key>
 			<string>Positivity:Negativity</string>
@@ -227,7 +261,9 @@
 		</dict>
 		<key>Self Control</key>
 		<dict>
-			<key>keyIndex</key>
+			<key>active</key>
+<integer>0</integer>
+<key>keyIndex</key>
 			<integer>15</integer>
 			<key>icon</key>
 			<string></string>
@@ -240,7 +276,9 @@
 		</dict>
 		<key>Sensitivity/Compassion</key>
 		<dict>
-			<key>keyIndex</key>
+			<key>active</key>
+<integer>0</integer>
+<key>keyIndex</key>
 			<integer>16</integer>
 			<key>icon</key>
 			<string>Sensitivity:Compassion</string>
@@ -253,7 +291,9 @@
 		</dict>
 		<key>Time Management</key>
 		<dict>
-			<key>keyIndex</key>
+			<key>active</key>
+<integer>0</integer>
+<key>keyIndex</key>
 			<integer>18</integer>
 			<key>icon</key>
 			<string></string>

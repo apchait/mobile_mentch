@@ -14,6 +14,6 @@
 @property (strong, nonatomic) UIPopoverController *flipsidePopoverController;
 @property (nonatomic, retain) AppDelegate *myApp;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *editButton;
-
+@property (nonatomic, retain) NSMutableDictionary *activeTraits, *nonActiveTraits;
 -(IBAction)edit:(id)sender;
 @end
