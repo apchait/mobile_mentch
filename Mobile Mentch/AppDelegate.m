@@ -11,7 +11,7 @@
 #import "Entry.h"
 @implementation AppDelegate
 
-@synthesize window = _window, traits, traitsPath, allEntries, todaysEntries, entriesPath, currentTrait, currentEntry, dateKey, dbDateFormatter, stringDateFormatter, facebook, userDictionary;
+@synthesize window = _window, traits, traitsPath, allEntries, todaysEntries, entriesPath, currentTrait, currentEntry, dateKey, dbDateFormatter, stringDateFormatter, facebook, userDictionary, activeTraits;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {

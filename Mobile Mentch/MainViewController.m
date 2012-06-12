@@ -196,6 +196,7 @@
         [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:[self.activeTraits indexOfObject:trait] inSection:1]]  withRowAnimation:UITableViewRowAnimationFade];         
     }
     // Save the changes to the traits
+    myApp.activeTraits = [NSArray arrayWithArray:self.activeTraits];
     [myApp writeTraitsFile];
 }
 
@@ -264,6 +265,8 @@
     // Sort the lists alphabetically
     activeTraits = [NSMutableArray arrayWithArray:[activeTraits sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)]];
     nonActiveTraits = [NSMutableArray arrayWithArray:[nonActiveTraits sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)]];
+    // Tell the delegate what the active traits are
+    myApp.activeTraits = [NSArray arrayWithArray:self.activeTraits];
     // If this is the first time, there will be no active traits so we need to prompt the user to add some
     if ([activeTraits count] == 0) {
         [self showAddTraitsOverlay];

@@ -26,6 +26,7 @@
 @property (nonatomic, retain) NSDateFormatter *dbDateFormatter, *stringDateFormatter;
 @property (nonatomic, retain) Facebook *facebook;
 @property (nonatomic, retain) NSDictionary *userDictionary;
+@property (nonatomic, retain) NSArray *activeTraits;
 
 -(BOOL) saveCurrentEntry;
 -(BOOL) writeEntriesFile;
