@@ -11,7 +11,7 @@
 #import "Entry.h"
 @implementation AppDelegate
 
-@synthesize window = _window, traits, traitsPath, traitsOrder, traitsOrderPath, allEntries, todaysEntries, entriesPath, currentTrait, currentEntry, dateKey, dbDateFormatter, stringDateFormatter, facebook, userDictionary;
+@synthesize window = _window, traits, traitsPath, allEntries, todaysEntries, entriesPath, currentTrait, currentEntry, dateKey, dbDateFormatter, stringDateFormatter, facebook, userDictionary;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -49,26 +49,6 @@
     else {
         // Else bring it in from the bundle
         self.traits = [[[NSMutableDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"traits" ofType:@"plist"]] objectForKey:@"traits"];
-    }
-    
-    
-    
-    // Bring in the trait order
-    
-    //self.traitsOrderPath = [documentsDir stringByAppendingPathComponent: @"traitsOrder.plist"];
-    // Erase traits order
-    [[NSFileManager defaultManager] removeItemAtPath:traitsOrderPath error:nil];
-    self.traitsOrder = [NSDictionary dictionaryWithContentsOfFile:traitsOrderPath];
-    // If it is the first time, create an alphabetical order with all active
-    if ([traitsOrder count] == 0) {
-        self.traitsOrder = [[NSMutableDictionary alloc] init];
-        for (NSString *trait in [traits allKeys]) {
-            NSMutableDictionary *tempDict = [[NSMutableDictionary alloc] init];
-            [tempDict setValue:[[traits valueForKey:trait] valueForKey:@"keyIndex"] forKey:@"index"];
-            [tempDict setValue:[NSNumber numberWithInt:0] forKey:@"active"];
-            [traitsOrder setValue:tempDict forKey:trait];
-        }
-        [traitsOrder writeToFile:traitsOrderPath atomically:YES];
     }
     
     // Bring in all the entries
@@ -183,19 +163,6 @@
         return NO;
     }
 }
-
--(BOOL) writeTraitsOrderFile{
-    if ([self.traitsOrder writeToFile:traitsOrderPath atomically:YES] == YES){
-        NSLog(@"YES Written");
-        return YES;
-    }
-    else {
-        // raise alert
-        NSLog(@"NOT Written");
-        return NO;
-    }
-}
-
 
 - (BOOL) saveCurrentEntry{
     // This method is called when done is clicked on RatingViewController, the trait being worked on at the time is saved into the database for the current date, overwriting existing entries if necessary

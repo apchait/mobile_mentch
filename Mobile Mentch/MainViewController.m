@@ -126,7 +126,6 @@
         editButton.style = UIBarButtonItemStyleDone;
     }
     else {
-        [myApp writeTraitsOrderFile];
         editButton.title = @"Edit";
         editButton.style = UIBarButtonItemStylePlain;
     }
@@ -157,6 +156,8 @@
         UIImageView *image = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"addHeader.png"]];
 		return image;
     }
+    else 
+        return nil;
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
@@ -208,7 +209,7 @@
     return YES;
 }
 
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath{
+/*- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath{
     NSLog(@"From %d", [fromIndexPath row]);
     NSLog(@"To %d", [toIndexPath row]);
     NSLog(@"From %@", [[[tableView cellForRowAtIndexPath:fromIndexPath] textLabel] text]);
@@ -237,7 +238,7 @@
     [[[myApp traitsOrder] valueForKey:fromTrait] setValue:[NSNumber numberWithInt:[toIndexPath row]] forKey:@"index"];
     NSLog(@"%@",[[myApp traitsOrder] description]);
 
-}
+}*/
 
 #pragma mark - Regular View methods
 - (void)viewDidLoad
@@ -260,8 +261,10 @@
         }
     }
     
+    // Sort the lists alphabetically
     activeTraits = [NSMutableArray arrayWithArray:[activeTraits sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)]];
     nonActiveTraits = [NSMutableArray arrayWithArray:[nonActiveTraits sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)]];
+    // If this is the first time, there will be no active traits so we need to prompt the user to add some
     if ([activeTraits count] == 0) {
         [self showAddTraitsOverlay];
     }
