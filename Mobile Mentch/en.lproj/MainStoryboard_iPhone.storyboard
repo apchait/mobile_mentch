@@ -217,11 +217,10 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <segmentedControl opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="2" id="xJe-FF-xUu">
+                                        <segmentedControl opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="1" id="xJe-FF-xUu">
                                             <rect key="frame" x="23" y="7" width="275" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <segments>
-                                                <segment title="Year"/>
                                                 <segment title="Month"/>
                                                 <segment title="Week"/>
                                                 <segment title="Day"/>
@@ -830,67 +829,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <image name="star-red256.png" width="256" height="256"/>
         <image name="star-white256.png" width="256" height="256"/>
     </resources>
-    <classes>
-        <class className="LoginViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LoginViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="emailTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="passwordTextField" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="MainViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="edit:"/>
-                <relationship kind="outlet" name="editButton" candidateClass="UIBarButtonItem"/>
-            </relationships>
-        </class>
-        <class className="NoteViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NoteViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="cancelButton" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="doneButton" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="navBarTitle" candidateClass="UINavigationItem"/>
-                <relationship kind="outlet" name="textView" candidateClass="UITextView"/>
-            </relationships>
-        </class>
-        <class className="RatingViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RatingViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="starPressed:"/>
-                <relationship kind="action" name="starSwiped:"/>
-                <relationship kind="outlet" name="navBarTitle" candidateClass="UINavigationItem"/>
-                <relationship kind="outlet" name="notes" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="star1" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="star2" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="star3" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="star4" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="star5" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="traitDescription" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="traitImage" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="traitTitle" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="VisualizeStagingViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/VisualizeStagingViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="visualize:"/>
-                <relationship kind="outlet" name="periodPicker" candidateClass="UISegmentedControl"/>
-                <relationship kind="outlet" name="visualizeButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="VisualizeViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/VisualizeViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="datePicker:"/>
-                <relationship kind="action" name="visualizeButton:"/>
-                <relationship kind="outlet" name="FromUntilDateSegments" candidateClass="UISegmentedControl"/>
-                <relationship kind="outlet" name="datePicker" candidateClass="UIDatePicker"/>
-                <relationship kind="outlet" name="homeButton" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="navBar" candidateClass="UINavigationBar"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

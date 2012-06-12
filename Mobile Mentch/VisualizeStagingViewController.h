@@ -7,10 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#define kDailyIndex 3
-#define kWeeklyIndex 2
-#define kMonthlyIndex 1
-#define kYearlyIndex 0
+#define kDailyIndex 2
+#define kWeeklyIndex 1
+#define kMonthlyIndex 0
 
 @interface VisualizeStagingViewController : UITableViewController
 @property (weak, nonatomic) UISegmentedControl *periodPicker;

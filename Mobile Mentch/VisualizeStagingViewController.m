@@ -30,10 +30,7 @@
         startDate = [NSDate dateWithTimeIntervalSinceNow:-604800];
     }
     else if (segementIndex == kMonthlyIndex){
-        startDate = [NSDate dateWithTimeIntervalSinceNow:-18140000];
-    }
-    else {
-        startDate = [NSDate dateWithTimeIntervalSinceNow:-217728000];
+        startDate = [NSDate dateWithTimeIntervalSinceNow:-2592000];
     }
     NSLog(@"%@", [self dateArrayFrom:startDate to:endDate]);
 }
@@ -152,6 +149,11 @@
     }
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    
+    if ([indexPath section] == 0){
+        cell.textLabel.text = @"See the Graph!";
+        cell.textLabel.textAlignment = UITextAlignmentCenter;
+    }
     
     if ([indexPath section] == 1){
         self.periodPicker = (UISegmentedControl *)[cell.contentView viewWithTag:2];
