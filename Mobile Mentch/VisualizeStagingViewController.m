@@ -32,7 +32,23 @@
     else if (segementIndex == kMonthlyIndex){
         startDate = [NSDate dateWithTimeIntervalSinceNow:-2592000];
     }
-    NSLog(@"%@", [self dateArrayFrom:startDate to:endDate]);
+    NSArray *dataByDateArray = [NSArray arrayWithArray:[self dateArrayFrom:startDate to:endDate]];
+    
+    // turn data by data array into htmlbuilderarray
+    NSMutableDictionary *result = [[NSMutableDictionary alloc] init];
+    for (NSDictionary *entry in dataByDateArray) {
+        NSLog(@"%@", [entry description]);
+        for (NSDictionary *aTrait in [entry objectForKey:@"traits"]){
+            NSDictionary *trait = [NSDictionary dictionaryWithDictionary:[[entry objectForKey:@"traits"] objectForKey:aTrait]];
+            NSString *traitName = (NSString *)aTrait;
+            if (![result objectForKey:traitName]) {
+                [result setObject:[[NSMutableArray alloc] init] forKey:traitName];
+            }
+            NSDictionary *aResult = [NSDictionary dictionaryWithObjectsAndKeys: [entry objectForKey:@"date"], @"date", traitName, @"traitname", [trait objectForKey:@"notes"], @"note",  [trait objectForKey:@"rating"], @"rating",nil];
+            [[result objectForKey:traitName] addObject: aResult];
+        }
+    }
+    NSLog(@"%@", [result description]);
 }
 
 -(NSArray *)dateArrayFrom:(NSDate *)startDate to:(NSDate *)endDate{
